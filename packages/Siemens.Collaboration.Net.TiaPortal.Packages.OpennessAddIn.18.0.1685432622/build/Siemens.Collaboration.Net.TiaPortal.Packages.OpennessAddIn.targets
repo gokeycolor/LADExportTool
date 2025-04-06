@@ -1,0 +1,10 @@
+﻿<Project>
+
+	<PropertyGroup>
+		<SiemensEngineeringDirectoryNamePostfix>.AddIn</SiemensEngineeringDirectoryNamePostfix>
+		<OpennessPackageName>$(MsBuildThisFileName)</OpennessPackageName>
+	</PropertyGroup>
+
+	<Import Project="..\targets\ReferenceSiemensEngineeringAssemblies.targets"/>
+
+</Project>

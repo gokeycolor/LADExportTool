@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Siemens.Collaboration.Net.Windows.Authentication</name>
+    </assembly>
+    <members>
+        <member name="T:Credentials">
+            <summary>
+            Credentials for authentication
+            </summary>
+        </member>
+        <member name="M:Credentials.#ctor(System.String,System.String,System.Security.SecureString)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="domain">The domain</param>
+            <param name="username">The username</param>
+            <param name="password">The password</param>
+        </member>
+        <member name="M:Credentials.#ctor(System.String,System.Security.SecureString,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="userNameWithOrWithoutDomain">The username (can include domain)</param>
+            <param name="password">The password</param>
+            <param name="useMachineNameIfDomainNotSpecified">Use machine name if no domain is specified in <paramref name="userNameWithOrWithoutDomain"/></param>
+        </member>
+        <member name="M:Credentials.DomainAndUser">
+            <summary>
+            Aggregates domain and username (Domain\Username)
+            </summary>
+            <returns>Aggregated domain and username  (Domain\Username)</returns>
+        </member>
+        <member name="P:Credentials.Domain">
+            <summary>
+            Domain
+            </summary>
+        </member>
+        <member name="P:Credentials.UserName">
+            <summary>
+            Username
+            </summary>
+        </member>
+        <member name="P:Credentials.Password">
+            <summary>
+            Password
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Extensions.InteractiveAuthentication.CredentialInfo">
+            <summary>
+            CredentialInfo
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Extensions.InteractiveAuthentication.CredentialInfo.Target">
+            <summary>
+            Gets the target address.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Extensions.InteractiveAuthentication.CredentialInfo.Type">
+            <summary>
+            Gets the type.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Extensions.InteractiveAuthentication.CredentialInfo.User">
+            <summary>
+            Gets the user info.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Extensions.InteractiveAuthentication.CredentialInfo.Persistence">
+            <summary>
+            Gets the persistence of the credential.
+            </summary>
+        </member>
+        <member name="T:AuthenticationExtensions">
+            <summary>
+            Authentication extensions
+            </summary>
+        </member>
+        <member name="M:AuthenticationExtensions.AuthenticateInteractiveAsync(System.Uri,System.Boolean,System.Boolean,System.Boolean,System.Net.Http.HttpMethod)">
+            <summary>
+            Authenticates the specified URI interactively.
+            </summary>
+            <param name="uri">The URI to authenticate.</param>
+            <param name="verifyUrlAccess">Determines whether to verify URL access.</param>
+            <param name="showSaveCredentialsCheckbox">Determines whether to show the save credentials checkbox.</param>
+            <param name="enableSaveCredentialsByDefault">Determines whether to enable save credentials by default.</param>
+            <param name="uriAccessMethod">The URI access method.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the network credentials and the HTTP response message.</returns>
+        </member>
+        <member name="M:AuthenticationExtensions.AuthenticateInteractiveAsync(System.IO.DirectoryInfo,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Authenticates the specified URI interactively.
+            </summary>
+            <param name="networkDirectory">The directory to authenticate.</param>
+            <param name="verifyDirectoryAccess">Determines whether to verify directory access.</param>
+            <param name="showSaveCredentialsCheckbox">Determines whether to show the save credentials checkbox.</param>
+            <param name="enableSaveCredentialsByDefault">Determines whether to enable save credentials by default.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the network credentials and the HTTP response message.</returns>
+        </member>
+        <member name="M:AuthenticationExtensions.GetCredentials(Siemens.Collaboration.Net.Extensions.IProcessExecutor,System.Boolean,System.Nullable{System.Boolean})">
+            <summary>
+            Adds the given windows credentials to the credential manager.
+            </summary>
+        </member>
+        <member name="M:AuthenticationExtensions.AuthenticateInteractiveAsync(Siemens.Collaboration.Net.Extensions.ISystemMarker,System.String,System.Boolean,System.Boolean,System.Func{System.Net.NetworkCredential,System.Threading.Tasks.Task{System.Boolean}},System.Boolean,System.Boolean)">
+            <summary>
+            Authenticates the specified URI interactively.
+            </summary>
+            <param name="system">The system marker.</param>
+            <param name="target">The target URI to authenticate.</param>
+            <param name="showSaveCredentialsCheckbox">Determines whether to show the save credentials checkbox.</param>
+            <param name="enableSaveCredentialsByDefault">Determines whether to enable save credentials by default.</param>
+            <param name="verifyAuthenticationAsync">The function to verify the authentication asynchronously.</param>
+            <param name="forceAuthentication">Determines whether to force authentication even if saved credentials exist.</param>
+            <param name="throwExceptionOnCanceled">Determines whether to throw an exception when the user cancels the authentication.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the network credentials.</returns>
+        </member>
+        <member name="M:AuthenticationExtensions.AddCredentials(Siemens.Collaboration.Net.Extensions.IProcessExecutor,System.String,Credentials,System.Boolean,System.Boolean,System.Boolean,System.Nullable{System.Boolean})">
+            <summary>
+            Adds the given windows credentials to the credential manager.
+            </summary>
+            <param name="remoteExecutor"></param>
+            <param name="target">The target machine.</param>
+            <param name="credentials">The credentials to add.</param>
+            <param name="overwrite">Determines whether the credentials should be overwritten if they already exist.</param>
+            <param name="throwException">Determines whether an exception should be thrown, when adding the credentials to the store fails.</param>
+            <param name="adminContext">Determines whether the credentials should be added to the admin context store.</param>
+            <param name="currentProcessIsElevated"></param>
+        </member>
+    </members>
+</doc>

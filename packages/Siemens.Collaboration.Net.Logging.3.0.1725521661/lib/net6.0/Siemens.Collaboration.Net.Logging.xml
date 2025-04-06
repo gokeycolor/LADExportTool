@@ -1,0 +1,1488 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Siemens.Collaboration.Net.Logging</name>
+    </assembly>
+    <members>
+        <member name="T:GlobalExtensions">
+            <summary>
+            Provides extensions for the factory and global interface.
+            </summary>
+        </member>
+        <member name="M:GlobalExtensions.Log(Siemens.Collaboration.Net.IGlobal)">
+            <summary>
+            Gets the global logger.
+            </summary>
+            <param name="global">The global marker on which the extension is invoked.</param>
+            <returns>The global logger.</returns>
+        </member>
+        <member name="M:GlobalExtensions.LogManager(Siemens.Collaboration.Net.IGlobal)">
+            <summary>
+            Gets the global / default log manager.
+            </summary>
+            <param name="factory">The factory on which the extension is invoked.</param>
+            <returns>The global / default log manager.</returns>
+        </member>
+        <member name="T:LogExtension">
+            <summary>
+            Provides logging extension methods for all objects
+            </summary>
+        </member>
+        <member name="M:LogExtension.EscapeForFormat(System.String)">
+            <summary>
+            Escapes the string so that it can be used for string format without any problems.
+            </summary>
+            <param name="value">The value to escape.</param>
+            <returns>The escaped value</returns>
+        </member>
+        <member name="M:LogExtension.WithCategory(Siemens.Collaboration.Net.Logging.ILogger,System.String,System.Nullable{System.Drawing.Color})">
+            <summary>
+            Creates a new logger with the given category and background color.
+            </summary>
+            <param name="logger"></param>
+            <param name="category"></param>
+            <param name="color"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LogExtension.HandleAs``1(Siemens.Collaboration.Net.Logging.ILogEntry,System.Action{``0})">
+            <summary>
+            An extension method that can be used for custom log entry type handling.
+            </summary>
+            <typeparam name="TCustomLogEntry">The type of the custom log entry.</typeparam>
+            <param name="eventArgs">The event args on which the extension is invoked.</param>
+            <param name="onEntry">The action that is performed by the binding when the event args contain the custom log entry type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:LogExtension.Message(Siemens.Collaboration.Net.Logging.ILogger,System.Drawing.Color,System.String,System.Object[])">
+            <summary>
+            Logs an info message with normal priority.
+            </summary>
+            <param name="logger">The instance that calls the extension method.</param>
+            <param name="color">The color of the message.</param>
+            <param name="messagePattern">The message format pattern. 
+            See System.String.Format for more information.</param>
+            <param name="arguments">The arguments that will be inserted into the placeholders of the message pattern.</param>
+        </member>
+        <member name="M:LogExtension.Message(Siemens.Collaboration.Net.Logging.ILogger,System.Nullable{System.Drawing.Color},System.Nullable{Siemens.Collaboration.Net.Logging.LogPriority},System.String,System.Object[])">
+            <summary>
+            Logs an info message.
+            </summary>
+            <param name="logger">The logger on which the extension is invoked.</param>
+            <param name="color">The color of the log entry in the log viewer.</param>
+            <param name="priority">The priority of the message log.</param>
+            <param name="messagePattern">The message string pattern.</param>
+            <param name="arguments">The message parameters or Func{object} that will be lazy evaluated when required.</param>
+        </member>
+        <member name="M:LogExtension.Message(Siemens.Collaboration.Net.Logging.ILogger,System.String)">
+            <summary>
+            Logs an info message with normal priority.
+            </summary>
+            <param name="logger">The instance that calls the extension method.</param>
+            <param name="message">The log message. 
+            See System.String.Format for more information.</param>
+        </member>
+        <member name="M:LogExtension.Message(Siemens.Collaboration.Net.Logging.ILogger,System.String,System.Object[])">
+            <summary>
+            Logs an info message with normal priority.
+            </summary>
+            <param name="logger">The instance that calls the extension method.</param>
+            <param name="messagePattern">The message format pattern. 
+            See System.String.Format for more information.</param>
+            <param name="arguments">The arguments that will be inserted into the placeholders of the message pattern.</param>
+        </member>
+        <member name="M:LogExtension.MessageLow(Siemens.Collaboration.Net.Logging.ILogger,System.String,System.Object[])">
+            <summary>
+            Logs an info message with high priority.
+            </summary>
+            <param name="logger">The instance that calls the extension method.</param>
+            <param name="messagePattern">The message format pattern. 
+            See System.String.Format for more information.</param>
+            <param name="arguments">The arguments that will be inserted into the placeholders of the message pattern.</param>
+        </member>
+        <member name="M:LogExtension.Warning(Siemens.Collaboration.Net.Logging.ILogger,System.String)">
+            <summary>
+            Logs a warning message.
+            </summary>
+            <param name="logger">The instance that calls the extension method.</param>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:LogExtension.Warning(Siemens.Collaboration.Net.Logging.ILogger,System.String,System.Object[])">
+            <summary>
+            Logs a warning message.
+            </summary>
+            <param name="logger">The instance that calls the extension method.</param>
+            <param name="messagePattern">The message format pattern. 
+            See System.String.Format for more information.</param>
+            <param name="arguments">The arguments that will be inserted into the placeholders of the message pattern.</param>
+        </member>
+        <member name="M:LogExtension.Error(Siemens.Collaboration.Net.Logging.ILogger,System.Exception)">
+            <summary>
+            Logs an auto generated error message including the exception information and method parameter names and values.
+            </summary>
+            <param name="logger">The instance that calls the extension method.</param>
+            <param name="ex">The exception.</param>
+        </member>
+        <member name="M:LogExtension.Error(Siemens.Collaboration.Net.Logging.ILogger,System.Exception,System.String,System.Object[])">
+            <summary>
+            Logs the given message including the exception information.
+            </summary>
+            <param name="logger">The instance that calls the extension method.</param>
+            <param name="ex">The exception.</param>
+            <param name="messagePattern">The message format pattern. 
+            See System.String.Format for more information.</param>
+            <param name="arguments">The arguments that will be inserted into the placeholders of the message pattern.</param>
+        </member>
+        <member name="M:LogExtension.Error(Siemens.Collaboration.Net.Logging.ILogger,System.String)">
+            <summary>
+            Logs the given error message.
+            </summary>
+            <param name="logger">The instance that calls the extension method.</param>
+            <param name="errorMessage">The error message.</param>
+        </member>
+        <member name="M:LogExtension.Error(Siemens.Collaboration.Net.Logging.ILogger,System.String,System.Object[])">
+            <summary>
+            Logs the given error message.
+            </summary>
+            <param name="logger">The instance that calls the extension method.</param>
+            <param name="errorMessagePattern">The error message format pattern. See System.String.Format for more information.</param>
+            <param name="arguments">The arguments that will be inserted into the placeholders of the message pattern.</param>
+        </member>
+        <member name="M:LogExtension.Action(Siemens.Collaboration.Net.Logging.ILogger,System.Action,System.String,System.Int32,System.String)">
+            <summary>
+            Logs enter and exit message for a method without a return value.
+            </summary>
+            <param name="logger">The logger on which the extension has been invoked.</param>
+            <param name="method">The method that should be logged.</param>
+            <param name="filePath">The file path of the C# file that contains the method.</param>
+            <param name="lineNumber">The line number of the C# file that contains the method.</param>
+            <param name="memberName">The name of the method.</param>
+            <returns>A disposable that invokes the exit method log when disposed.</returns>
+        </member>
+        <member name="M:LogExtension.Action``1(Siemens.Collaboration.Net.Logging.ILogger,System.Action{``0},``0,System.String,System.Int32,System.String)">
+            <summary>
+            Logs enter and exit message for a method without a return value.
+            </summary>
+            <typeparam name="T">The type of the first method parameter.</typeparam>
+            <param name="logger">The logger on which the extension has been invoked.</param>
+            <param name="method">The method that should be logged.</param>
+            <param name="param">The first method parameter.</param>
+            <param name="filePath">The file path of the C# file that contains the method.</param>
+            <param name="lineNumber">The line number of the C# file that contains the method.</param>
+            <param name="memberName">The name of the method.</param>
+            <returns>A disposable that invokes the exit method log when disposed.</returns>
+        </member>
+        <member name="M:LogExtension.Action``2(Siemens.Collaboration.Net.Logging.ILogger,System.Action{``0,``1},``0,``1,System.String,System.Int32,System.String)">
+            <summary>
+            Logs enter and exit message for a method without a return value.
+            </summary>
+            <typeparam name="T1">The type of the first method parameter.</typeparam>
+            <typeparam name="T2">The type of the second parameter.</typeparam>
+            <param name="logger">The logger on which the extension has been invoked.</param>
+            <param name="method">The method that should be logged.</param>
+            <param name="paramA">The first method parameter.</param>
+            <param name="paramB">The second method parameter.</param>
+            <param name="filePath">The file path of the C# file that contains the method.</param>
+            <param name="lineNumber">The line number of the C# file that contains the method.</param>
+            <param name="memberName">The name of the method.</param>
+            <returns>A disposable that invokes the exit method log when disposed.</returns>
+        </member>
+        <member name="M:LogExtension.Action``3(Siemens.Collaboration.Net.Logging.ILogger,System.Action{``0,``1,``2},``0,``1,``2,System.String,System.Int32,System.String)">
+            <summary>
+            Logs enter and exit message for a method without a return value.
+            </summary>
+            <typeparam name="T1">The type of the first method parameter.</typeparam>
+            <typeparam name="T2">The type of the second parameter.</typeparam>
+            <typeparam name="T3">The type of the third parameter.</typeparam>
+            <param name="logger">The logger on which the extension has been invoked.</param>
+            <param name="method">The method that should be logged.</param>
+            <param name="paramA">The first method parameter.</param>
+            <param name="paramB">The second method parameter.</param>
+            <param name="paramC">The third method parameter.</param>
+            <param name="filePath">The file path of the C# file that contains the method.</param>
+            <param name="lineNumber">The line number of the C# file that contains the method.</param>
+            <param name="memberName">The name of the method.</param>
+            <returns>A disposable that invokes the exit method log when disposed.</returns>
+        </member>
+        <member name="M:LogExtension.Action``4(Siemens.Collaboration.Net.Logging.ILogger,System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.String,System.Int32,System.String)">
+            <summary>
+            Logs enter and exit message for a method without a return value.
+            </summary>
+            <typeparam name="T1">The type of the first method parameter.</typeparam>
+            <typeparam name="T2">The type of the second parameter.</typeparam>
+            <typeparam name="T3">The type of the third parameter.</typeparam>
+            <typeparam name="T4">The type of the 4th parameter.</typeparam>
+            <param name="logger">The logger on which the extension has been invoked.</param>
+            <param name="method">The method that should be logged.</param>
+            <param name="paramA">The first method parameter.</param>
+            <param name="paramB">The second method parameter.</param>
+            <param name="paramC">The third method parameter.</param>
+            <param name="paramD">The 4th method parameter.</param>
+            <param name="filePath">The file path of the C# file that contains the method.</param>
+            <param name="lineNumber">The line number of the C# file that contains the method.</param>
+            <param name="memberName">The name of the method.</param>
+            <returns>A disposable that invokes the exit method log when disposed.</returns>
+        </member>
+        <member name="M:LogExtension.Action``5(Siemens.Collaboration.Net.Logging.ILogger,System.Action{``0,``1,``2,``3,``4},``0,``1,``2,``3,``4,System.String,System.Int32,System.String)">
+            <summary>
+            Logs enter and exit message for a method without a return value.
+            </summary>
+            <typeparam name="T1">The type of the first method parameter.</typeparam>
+            <typeparam name="T2">The type of the second parameter.</typeparam>
+            <typeparam name="T3">The type of the third parameter.</typeparam>
+            <typeparam name="T4">The type of the 4th parameter.</typeparam>
+            <typeparam name="T5">The type of the 5th parameter.</typeparam>
+            <param name="logger">The logger on which the extension has been invoked.</param>
+            <param name="method">The method that should be logged.</param>
+            <param name="paramA">The first method parameter.</param>
+            <param name="paramB">The second method parameter.</param>
+            <param name="paramC">The third method parameter.</param>
+            <param name="paramD">The 4th method parameter.</param>
+            <param name="paramE">The 5th method parameter.</param>
+            <param name="filePath">The file path of the C# file that contains the method.</param>
+            <param name="lineNumber">The line number of the C# file that contains the method.</param>
+            <param name="memberName">The name of the method.</param>
+            <returns>A disposable that invokes the exit method log when disposed.</returns>
+        </member>
+        <member name="M:LogExtension.Action``6(Siemens.Collaboration.Net.Logging.ILogger,System.Action{``0,``1,``2,``3,``4,``5},``0,``1,``2,``3,``4,``5,System.String,System.Int32,System.String)">
+            <summary>
+            Logs enter and exit message for a method without a return value.
+            </summary>
+            <typeparam name="T1">The type of the first method parameter.</typeparam>
+            <typeparam name="T2">The type of the second parameter.</typeparam>
+            <typeparam name="T3">The type of the third parameter.</typeparam>
+            <typeparam name="T4">The type of the 4th parameter.</typeparam>
+            <typeparam name="T5">The type of the 5th parameter.</typeparam>
+            <typeparam name="T6">The type of the 6th parameter.</typeparam>
+            <param name="logger">The logger on which the extension has been invoked.</param>
+            <param name="method">The method that should be logged.</param>
+            <param name="paramA">The first method parameter.</param>
+            <param name="paramB">The second method parameter.</param>
+            <param name="paramC">The third method parameter.</param>
+            <param name="paramD">The 4th method parameter.</param>
+            <param name="paramE">The 5th method parameter.</param>
+            <param name="paramF">The 6th method parameter.</param>
+            <param name="filePath">The file path of the C# file that contains the method.</param>
+            <param name="lineNumber">The line number of the C# file that contains the method.</param>
+            <param name="memberName">The name of the method.</param>
+            <returns>A disposable that invokes the exit method log when disposed.</returns>
+        </member>
+        <member name="M:LogExtension.Action``7(Siemens.Collaboration.Net.Logging.ILogger,System.Action{``0,``1,``2,``3,``4,``5,``6},``0,``1,``2,``3,``4,``5,``6,System.String,System.Int32,System.String)">
+            <summary>
+            Logs enter and exit message for a method without a return value.
+            </summary>
+            <typeparam name="T1">The type of the first method parameter.</typeparam>
+            <typeparam name="T2">The type of the second parameter.</typeparam>
+            <typeparam name="T3">The type of the third parameter.</typeparam>
+            <typeparam name="T4">The type of the 4th parameter.</typeparam>
+            <typeparam name="T5">The type of the 5th parameter.</typeparam>
+            <typeparam name="T6">The type of the 6th parameter.</typeparam>
+            <typeparam name="T7">The type of the 7th parameter.</typeparam>
+            <param name="logger">The logger on which the extension has been invoked.</param>
+            <param name="method">The method that should be logged.</param>
+            <param name="paramA">The first method parameter.</param>
+            <param name="paramB">The second method parameter.</param>
+            <param name="paramC">The third method parameter.</param>
+            <param name="paramD">The 4th method parameter.</param>
+            <param name="paramE">The 5th method parameter.</param>
+            <param name="paramF">The 6th method parameter.</param>
+            <param name="paramG">The 7th method parameter.</param>
+            <param name="filePath">The file path of the C# file that contains the method.</param>
+            <param name="lineNumber">The line number of the C# file that contains the method.</param>
+            <param name="memberName">The name of the method.</param>
+            <returns>A disposable that invokes the exit method log when disposed.</returns>
+        </member>
+        <member name="M:LogExtension.Action``8(Siemens.Collaboration.Net.Logging.ILogger,System.Action{``0,``1,``2,``3,``4,``5,``6,``7},``0,``1,``2,``3,``4,``5,``6,``7,System.String,System.Int32,System.String)">
+            <summary>
+            Logs enter and exit message for a method without a return value.
+            </summary>
+            <typeparam name="T1">The type of the first method parameter.</typeparam>
+            <typeparam name="T2">The type of the second parameter.</typeparam>
+            <typeparam name="T3">The type of the third parameter.</typeparam>
+            <typeparam name="T4">The type of the 4th parameter.</typeparam>
+            <typeparam name="T5">The type of the 5th parameter.</typeparam>
+            <typeparam name="T6">The type of the 6th parameter.</typeparam>
+            <typeparam name="T7">The type of the 7th parameter.</typeparam>
+            <typeparam name="T8">The type of the 8th parameter.</typeparam>
+            <param name="logger">The logger on which the extension has been invoked.</param>
+            <param name="method">The method that should be logged.</param>
+            <param name="paramA">The first method parameter.</param>
+            <param name="paramB">The second method parameter.</param>
+            <param name="paramC">The third method parameter.</param>
+            <param name="paramD">The 4th method parameter.</param>
+            <param name="paramE">The 5th method parameter.</param>
+            <param name="paramF">The 6th method parameter.</param>
+            <param name="paramG">The 7th method parameter.</param>
+            <param name="paramH">The 8th method parameter.</param>
+            <param name="filePath">The file path of the C# file that contains the method.</param>
+            <param name="lineNumber">The line number of the C# file that contains the method.</param>
+            <param name="memberName">The name of the method.</param>
+            <returns>A disposable that invokes the exit method log when disposed.</returns>
+        </member>
+        <member name="M:LogExtension.Action``9(Siemens.Collaboration.Net.Logging.ILogger,System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8},``0,``1,``2,``3,``4,``5,``6,``7,``8,System.String,System.Int32,System.String)">
+            <summary>
+            Logs enter and exit message for a method without a return value.
+            </summary>
+            <typeparam name="T1">The type of the first method parameter.</typeparam>
+            <typeparam name="T2">The type of the second parameter.</typeparam>
+            <typeparam name="T3">The type of the third parameter.</typeparam>
+            <typeparam name="T4">The type of the 4th parameter.</typeparam>
+            <typeparam name="T5">The type of the 5th parameter.</typeparam>
+            <typeparam name="T6">The type of the 6th parameter.</typeparam>
+            <typeparam name="T7">The type of the 7th parameter.</typeparam>
+            <typeparam name="T8">The type of the 8th parameter.</typeparam>
+            <typeparam name="T9">The type of the 9th parameter.</typeparam>
+            <param name="logger">The logger on which the extension has been invoked.</param>
+            <param name="method">The method that should be logged.</param>
+            <param name="paramA">The first method parameter.</param>
+            <param name="paramB">The second method parameter.</param>
+            <param name="paramC">The third method parameter.</param>
+            <param name="paramD">The 4th method parameter.</param>
+            <param name="paramE">The 5th method parameter.</param>
+            <param name="paramF">The 6th method parameter.</param>
+            <param name="paramG">The 7th method parameter.</param>
+            <param name="paramH">The 8th method parameter.</param>
+            <param name="paramI">The 9th method parameter.</param>
+            <param name="filePath">The file path of the C# file that contains the method.</param>
+            <param name="lineNumber">The line number of the C# file that contains the method.</param>
+            <param name="memberName">The name of the method.</param>
+            <returns>A disposable that invokes the exit method log when disposed.</returns>
+        </member>
+        <member name="M:LogExtension.Function``1(Siemens.Collaboration.Net.Logging.ILogger,System.Func{``0},System.String,System.Int32,System.String)">
+            <summary>
+            Logs enter and exit message for a method with a return value.
+            </summary>
+            <typeparam name="TResult">The type of the method return value.</typeparam>
+            <param name="logger">The logger on which the extension has been invoked.</param>
+            <param name="method">The method that should be logged.</param>
+            <param name="filePath">The file path of the C# file that contains the method.</param>
+            <param name="lineNumber">The line number of the C# file that contains the method.</param>
+            <param name="memberName">The name of the method.</param>
+            <returns>A disposable that invokes the exit method log when disposed.</returns>
+        </member>
+        <member name="M:LogExtension.Function``2(Siemens.Collaboration.Net.Logging.ILogger,System.Func{``0,``1},``0,System.String,System.Int32,System.String)">
+            <summary>
+            Logs enter and exit message for a method with a return value.
+            </summary>
+            <typeparam name="T">The type of the first method parameter.</typeparam>
+            <typeparam name="TResult">The type of the method return value.</typeparam>
+            <param name="logger">The logger on which the extension has been invoked.</param>
+            <param name="method">The method that should be logged.</param>
+            <param name="param">The first method parameter.</param>
+            <param name="filePath">The file path of the C# file that contains the method.</param>
+            <param name="lineNumber">The line number of the C# file that contains the method.</param>
+            <param name="memberName">The name of the method.</param>
+            <returns>A disposable that invokes the exit method log when disposed.</returns>
+        </member>
+        <member name="M:LogExtension.Function``3(Siemens.Collaboration.Net.Logging.ILogger,System.Func{``0,``1,``2},``0,``1,System.String,System.Int32,System.String)">
+            <summary>
+            Logs enter and exit message for a method with a return value.
+            </summary>
+            <typeparam name="T1">The type of the first method parameter.</typeparam>
+            <typeparam name="T2">The type of the second parameter.</typeparam>
+            <typeparam name="TResult">The type of the method return value.</typeparam>
+            <param name="logger">The logger on which the extension has been invoked.</param>
+            <param name="method">The method that should be logged.</param>
+            <param name="paramA">The first method parameter.</param>
+            <param name="paramB">The second method parameter.</param>
+            <param name="filePath">The file path of the C# file that contains the method.</param>
+            <param name="lineNumber">The line number of the C# file that contains the method.</param>
+            <param name="memberName">The name of the method.</param>
+            <returns>A disposable that invokes the exit method log when disposed.</returns>
+        </member>
+        <member name="M:LogExtension.Function``4(Siemens.Collaboration.Net.Logging.ILogger,System.Func{``0,``1,``2,``3},``0,``1,``2,System.String,System.Int32,System.String)">
+            <summary>
+            Logs enter and exit message for a method with a return value.
+            </summary>
+            <typeparam name="T1">The type of the first method parameter.</typeparam>
+            <typeparam name="T2">The type of the second parameter.</typeparam>
+            <typeparam name="T3">The type of the third parameter.</typeparam>
+            <typeparam name="TResult">The type of the method return value.</typeparam>
+            <param name="logger">The logger on which the extension has been invoked.</param>
+            <param name="method">The method that should be logged.</param>
+            <param name="paramA">The first method parameter.</param>
+            <param name="paramB">The second method parameter.</param>
+            <param name="paramC">The third method parameter.</param>
+            <param name="filePath">The file path of the C# file that contains the method.</param>
+            <param name="lineNumber">The line number of the C# file that contains the method.</param>
+            <param name="memberName">The name of the method.</param>
+            <returns>A disposable that invokes the exit method log when disposed.</returns>
+        </member>
+        <member name="M:LogExtension.Function``5(Siemens.Collaboration.Net.Logging.ILogger,System.Func{``0,``1,``2,``3,``4},``0,``1,``2,``3,System.String,System.Int32,System.String)">
+            <summary>
+            Logs enter and exit message for a method with a return value.
+            </summary>
+            <typeparam name="T1">The type of the first method parameter.</typeparam>
+            <typeparam name="T2">The type of the second parameter.</typeparam>
+            <typeparam name="T3">The type of the third parameter.</typeparam>
+            <typeparam name="T4">The type of the 4th parameter.</typeparam>
+            <typeparam name="TResult">The type of the method return value.</typeparam>
+            <param name="logger">The logger on which the extension has been invoked.</param>
+            <param name="method">The method that should be logged.</param>
+            <param name="paramA">The first method parameter.</param>
+            <param name="paramB">The second method parameter.</param>
+            <param name="paramC">The third method parameter.</param>
+            <param name="paramD">The 4th method parameter.</param>
+            <param name="filePath">The file path of the C# file that contains the method.</param>
+            <param name="lineNumber">The line number of the C# file that contains the method.</param>
+            <param name="memberName">The name of the method.</param>
+            <returns>A disposable that invokes the exit method log when disposed.</returns>
+        </member>
+        <member name="M:LogExtension.Function``6(Siemens.Collaboration.Net.Logging.ILogger,System.Func{``0,``1,``2,``3,``4,``5},``0,``1,``2,``3,``4,System.String,System.Int32,System.String)">
+            <summary>
+            Logs enter and exit message for a method with a return value.
+            </summary>
+            <typeparam name="T1">The type of the first method parameter.</typeparam>
+            <typeparam name="T2">The type of the second parameter.</typeparam>
+            <typeparam name="T3">The type of the third parameter.</typeparam>
+            <typeparam name="T4">The type of the 4th parameter.</typeparam>
+            <typeparam name="T5">The type of the 5th parameter.</typeparam>
+            <typeparam name="TResult">The type of the method return value.</typeparam>
+            <param name="logger">The logger on which the extension has been invoked.</param>
+            <param name="method">The method that should be logged.</param>
+            <param name="paramA">The first method parameter.</param>
+            <param name="paramB">The second method parameter.</param>
+            <param name="paramC">The third method parameter.</param>
+            <param name="paramD">The 4th method parameter.</param>
+            <param name="paramE">The 5th method parameter.</param>
+            <param name="filePath">The file path of the C# file that contains the method.</param>
+            <param name="lineNumber">The line number of the C# file that contains the method.</param>
+            <param name="memberName">The name of the method.</param>
+            <returns>A disposable that invokes the exit method log when disposed.</returns>
+        </member>
+        <member name="M:LogExtension.Function``7(Siemens.Collaboration.Net.Logging.ILogger,System.Func{``0,``1,``2,``3,``4,``5,``6},``0,``1,``2,``3,``4,``5,System.String,System.Int32,System.String)">
+            <summary>
+            Logs enter and exit message for a method with a return value.
+            </summary>
+            <typeparam name="T1">The type of the first method parameter.</typeparam>
+            <typeparam name="T2">The type of the second parameter.</typeparam>
+            <typeparam name="T3">The type of the third parameter.</typeparam>
+            <typeparam name="T4">The type of the 4th parameter.</typeparam>
+            <typeparam name="T5">The type of the 5th parameter.</typeparam>
+            <typeparam name="T6">The type of the 6th parameter.</typeparam>
+            <typeparam name="TResult">The type of the method return value.</typeparam>
+            <param name="logger">The logger on which the extension has been invoked.</param>
+            <param name="method">The method that should be logged.</param>
+            <param name="paramA">The first method parameter.</param>
+            <param name="paramB">The second method parameter.</param>
+            <param name="paramC">The third method parameter.</param>
+            <param name="paramD">The 4th method parameter.</param>
+            <param name="paramE">The 5th method parameter.</param>
+            <param name="paramF">The 6th method parameter.</param>
+            <param name="filePath">The file path of the C# file that contains the method.</param>
+            <param name="lineNumber">The line number of the C# file that contains the method.</param>
+            <param name="memberName">The name of the method.</param>
+            <returns>A disposable that invokes the exit method log when disposed.</returns>
+        </member>
+        <member name="M:LogExtension.Function``8(Siemens.Collaboration.Net.Logging.ILogger,System.Func{``0,``1,``2,``3,``4,``5,``6,``7},``0,``1,``2,``3,``4,``5,``6,System.String,System.Int32,System.String)">
+            <summary>
+            Logs enter and exit message for a method with a return value.
+            </summary>
+            <typeparam name="T1">The type of the first method parameter.</typeparam>
+            <typeparam name="T2">The type of the second parameter.</typeparam>
+            <typeparam name="T3">The type of the third parameter.</typeparam>
+            <typeparam name="T4">The type of the 4th parameter.</typeparam>
+            <typeparam name="T5">The type of the 5th parameter.</typeparam>
+            <typeparam name="T6">The type of the 6th parameter.</typeparam>
+            <typeparam name="T7">The type of the 7th parameter.</typeparam>
+            <typeparam name="TResult">The type of the method return value.</typeparam>
+            <param name="logger">The logger on which the extension has been invoked.</param>
+            <param name="method">The method that should be logged.</param>
+            <param name="paramA">The first method parameter.</param>
+            <param name="paramB">The second method parameter.</param>
+            <param name="paramC">The third method parameter.</param>
+            <param name="paramD">The 4th method parameter.</param>
+            <param name="paramE">The 5th method parameter.</param>
+            <param name="paramF">The 6th method parameter.</param>
+            <param name="paramG">The 7th method parameter.</param>
+            <param name="filePath">The file path of the C# file that contains the method.</param>
+            <param name="lineNumber">The line number of the C# file that contains the method.</param>
+            <param name="memberName">The name of the method.</param>
+            <returns>A disposable that invokes the exit method log when disposed.</returns>
+        </member>
+        <member name="M:LogExtension.Function``9(Siemens.Collaboration.Net.Logging.ILogger,System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8},``0,``1,``2,``3,``4,``5,``6,``7,System.String,System.Int32,System.String)">
+            <summary>
+            Logs enter and exit message for a method with a return value.
+            </summary>
+            <typeparam name="T1">The type of the first method parameter.</typeparam>
+            <typeparam name="T2">The type of the second parameter.</typeparam>
+            <typeparam name="T3">The type of the third parameter.</typeparam>
+            <typeparam name="T4">The type of the 4th parameter.</typeparam>
+            <typeparam name="T5">The type of the 5th parameter.</typeparam>
+            <typeparam name="T6">The type of the 6th parameter.</typeparam>
+            <typeparam name="T7">The type of the 7th parameter.</typeparam>
+            <typeparam name="T8">The type of the 8th parameter.</typeparam>
+            <typeparam name="TResult">The type of the method return value.</typeparam>
+            <param name="logger">The logger on which the extension has been invoked.</param>
+            <param name="method">The method that should be logged.</param>
+            <param name="paramA">The first method parameter.</param>
+            <param name="paramB">The second method parameter.</param>
+            <param name="paramC">The third method parameter.</param>
+            <param name="paramD">The 4th method parameter.</param>
+            <param name="paramE">The 5th method parameter.</param>
+            <param name="paramF">The 6th method parameter.</param>
+            <param name="paramG">The 7th method parameter.</param>
+            <param name="paramH">The 8th method parameter.</param>
+            <param name="filePath">The file path of the C# file that contains the method.</param>
+            <param name="lineNumber">The line number of the C# file that contains the method.</param>
+            <param name="memberName">The name of the method.</param>
+            <returns>A disposable that invokes the exit method log when disposed.</returns>
+        </member>
+        <member name="M:LogExtension.Function``10(Siemens.Collaboration.Net.Logging.ILogger,System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9},``0,``1,``2,``3,``4,``5,``6,``7,``8,System.String,System.Int32,System.String)">
+            <summary>
+            Logs enter and exit message for a method with a return value.
+            </summary>
+            <typeparam name="T1">The type of the first method parameter.</typeparam>
+            <typeparam name="T2">The type of the second parameter.</typeparam>
+            <typeparam name="T3">The type of the third parameter.</typeparam>
+            <typeparam name="T4">The type of the 4th parameter.</typeparam>
+            <typeparam name="T5">The type of the 5th parameter.</typeparam>
+            <typeparam name="T6">The type of the 6th parameter.</typeparam>
+            <typeparam name="T7">The type of the 7th parameter.</typeparam>
+            <typeparam name="T8">The type of the 8th parameter.</typeparam>
+            <typeparam name="T9">The type of the 9th parameter.</typeparam>
+            <typeparam name="TResult">The type of the method return value.</typeparam>
+            <param name="logger">The logger on which the extension has been invoked.</param>
+            <param name="method">The method that should be logged.</param>
+            <param name="paramA">The first method parameter.</param>
+            <param name="paramB">The second method parameter.</param>
+            <param name="paramC">The third method parameter.</param>
+            <param name="paramD">The 4th method parameter.</param>
+            <param name="paramE">The 5th method parameter.</param>
+            <param name="paramF">The 6th method parameter.</param>
+            <param name="paramG">The 7th method parameter.</param>
+            <param name="paramH">The 8th method parameter.</param>
+            <param name="paramI">The 9th method parameter.</param>
+            <param name="filePath">The file path of the C# file that contains the method.</param>
+            <param name="lineNumber">The line number of the C# file that contains the method.</param>
+            <param name="memberName">The name of the method.</param>
+            <returns>A disposable that invokes the exit method log when disposed.</returns>
+        </member>
+        <member name="T:LoggingExtensions">
+            <summary>
+            Provides extensions for the <see cref="T:Siemens.Collaboration.Net.Logging.ILogger"/> interface.
+            </summary>
+        </member>
+        <member name="M:LoggingExtensions.RegisterPerformanceLog(Siemens.Collaboration.Net.Logging.ILogManager,System.Action{Siemens.Collaboration.Net.Logging.SectionLogEntry})">
+            <summary>
+            Activates the performance logging of all sections for which the performance logging has not been explicitly deactivated.
+            </summary>
+            <param name="logManager">The logger on which the extension is invoked.</param>
+            <param name="onPerformanceLog"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoggingExtensions.BindToPerformanceLogs(Siemens.Collaboration.Net.Logging.ILogManager,System.Action{Siemens.Collaboration.Net.Logging.SectionLogEntry})">
+            <summary>
+            Activates the performance logging of all sections for which the performance logging has not been explicitly deactivated.
+            </summary>
+            <param name="logManager">The logger on which the extension is invoked.</param>
+            <param name="onPerformanceLog"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoggingExtensions.Section(Siemens.Collaboration.Net.Logging.ILogger,Siemens.Collaboration.Net.Logging.LogMessage,System.Nullable{System.Boolean},Siemens.Collaboration.Net.Logging.LogPriority,System.Nullable{System.Drawing.Color},System.Boolean,System.String,System.String)">
+            <summary>
+            Creates a section log with enter and exit messages.
+            </summary>
+            <param name="logger">The logger on which the extension is invoked.</param>
+            <param name="message">The log message <see cref="T:Siemens.Collaboration.Net.Logging.LogMessage"/> for more information.</param>
+            <param name="priority">The priority of the section entry</param>
+            <param name="measureTime">Determines whether the performance of the section should be logged.</param>
+            <param name="color"></param>
+            <param name="extraEmphasizeLine"></param>
+            <param name="enterPrefix"></param>
+            <param name="exitPrefix"></param>
+            <returns>A disposable that creates the exit log when the section is disposed.</returns>
+        </member>
+        <member name="M:LoggingExtensions.EnvironmentVariables(Siemens.Collaboration.Net.Logging.ILogger,System.Func{System.String,System.Boolean},System.Func{System.String,System.String})">
+            <summary>
+            Log environment variables
+            </summary>
+            <param name="logger">Logger</param>
+            <param name="nameFilter">Function to filter which environment variables to log (Default: all variables)</param>
+            <param name="valueConverter">Function to convert how the value should be logged (Default: log value)</param>
+        </member>
+        <member name="M:LoggingExtensions.Picture(Siemens.Collaboration.Net.Logging.ILogger,System.String,System.Func{System.Byte[]},System.Object[])">
+            <summary>
+            Logs a screenshot, when the logging utility is attached.
+            </summary>
+            <param name="logger">The logger on which the extension is invoked.</param>
+            <param name="message">The message that will be logged together with the screenshot link.</param>
+            <param name="takePngPicture">A function that creates the picture in PNG format. Will be invoked, when the bound logging access it.</param>
+            <param name="parameters">The message parameters.</param>
+        </member>
+        <member name="M:LoggingExtensions.Screenshot(Siemens.Collaboration.Net.Logging.ILogger,System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Object[])">
+            <summary>
+            Logs a screenshot, when the logging utility is attached.
+            </summary>
+            <param name="logger">The logger on which the extension is invoked.</param>
+            <param name="message">The message that will be logged together with the screenshot link.</param>
+            <param name="parameters">The message parameters.</param>
+              <param name="offsetX">The x-offset in pixel of the screenshot.</param>
+              <param name="offsetY">The y-offset in pixel of the screenshot</param>
+              <param name="width">The width in pixel of the screenshot. If null, the width based on the offset will be taken.</param>
+              <param name="height">The height in pixel of the screenshot. If null, the height based on the offset will be taken.</param>
+        </member>
+        <member name="M:LoggingExtensions.StartSection(Siemens.Collaboration.Net.Logging.ILogger,System.Guid,System.String,System.Object[])">
+            <summary>
+            Logs a start section.
+            </summary>
+            <param name="logger">The logger on which the extension is invoked.</param>
+            <param name="sectionId">Id of the section (enter, exit)</param>
+            <param name="messagePattern">The log message pattern.</param>
+            <param name="arguments">The log message arguments.</param>
+        </member>
+        <member name="M:LoggingExtensions.EndSection(Siemens.Collaboration.Net.Logging.ILogger,System.Guid,System.String,System.Nullable{System.TimeSpan},System.Object[])">
+            <summary>
+            Logs a end section.
+            </summary>
+            <param name="logger">The logger on which the extension is invoked.</param>
+            <param name="sectionId">Id of the section (enter, exit)</param>
+            <param name="messagePattern">The log message pattern.</param>
+            <param name="duration"></param>
+            <param name="arguments">The log message arguments.</param>
+        </member>
+        <member name="M:LoggingExtensions.File(Siemens.Collaboration.Net.Logging.ILogger,System.String,System.Byte[],System.String)">
+            <summary>
+            Log to file
+            </summary>
+            <param name="logger">Logger</param>
+            <param name="message">Message to log when writing to file</param>
+            <param name="data">Data to write to file</param>
+            <param name="fileName">Name of the file</param>
+        </member>
+        <member name="M:LoggingExtensions.ToStringArray(System.Object[])">
+            <summary>
+            Invoke ToString on a array of message parameters and return the result as array.
+            </summary>
+            <param name="messageParameters">Array of message parameters for to string operation.</param>
+            <returns>Array of to string result.</returns>
+        </member>
+        <member name="M:LoggingExtensions.Link(Siemens.Collaboration.Net.Logging.ILogger,System.String,Siemens.Collaboration.Net.Logging.LogType,System.String,System.Object[])">
+            <summary>
+            Logs a screenshot, when the logging utility is attached.
+            </summary>
+            <param name="logger">The logger on which the extension is invoked.</param>
+            <param name="filePath">The path that points to the file.</param>
+            <param name="logType">The log type.</param>
+            <param name="message">The message that will be logged together with the screenshot link.</param>
+            <param name="parameters">The message parameters.</param>
+        </member>
+        <member name="T:LogProviderExtensions">
+            <summary>
+            Provides extensions for the <see cref="T:Siemens.Collaboration.Net.Logging.ILogProvider"/> interface.
+            </summary>
+        </member>
+        <member name="M:LogProviderExtensions.BindToConsole(Siemens.Collaboration.Net.Logging.ILogManager,System.Func{Siemens.Collaboration.Net.Logging.ILogEntry,System.Boolean},System.Func{Siemens.Collaboration.Net.Logging.ILogEntry,System.String},System.Nullable{System.Int32},System.Boolean,System.Nullable{System.ValueTuple{System.IO.TextWriter,System.IO.TextWriter}})">
+            <summary>
+            Bind log messages to console
+            </summary>
+            <param name="logManager">Log manager</param>
+            <param name="logEntryFilter">Log entry filter</param>
+            <param name="getMessage">Function to construct a message based on a LogEntry</param>
+            <param name="maxMessageLength">Split message after maximum line length</param>
+            <param name="bindOnlyIfNoLoggerAttached">Only bind if no other logger is attached</param>
+            <param name="writers">Writers for messages and errors</param>
+            <returns></returns>
+        </member>
+        <member name="M:LogProviderExtensions.GetConsoleMessage(Siemens.Collaboration.Net.Logging.ILogEntry,System.Boolean,System.Boolean)">
+            <summary>
+            Get message for console output
+            </summary>
+            <param name="logEntry">Log entry</param>
+            <param name="addTime">Add timestamp (universal time format HH:mm:ss.ff) to message</param>
+            <param name="addCategory">Add category to message</param>
+            <returns></returns>
+        </member>
+        <member name="M:LogProviderExtensions.WriteToConsole(Siemens.Collaboration.Net.Logging.ILogEntry,System.Func{Siemens.Collaboration.Net.Logging.ILogEntry,System.String},System.Nullable{System.Int32},System.IO.TextWriter,System.IO.TextWriter)">
+            <summary>
+            Write log entry to console
+            </summary>
+            <param name="logEntry">Log entry</param>
+            <param name="getMessage">Function to construct a message based on a LogEntry</param>
+            <param name="maxMessageLength">Split message after maximum line length</param>
+            <param name="messageWriter">Writer for messages</param>
+            <param name="errorWriter">Writer for errors</param>
+            <exception cref="T:System.ArgumentNullException">Throws when getMessage is null</exception>
+        </member>
+        <member name="M:LogProviderExtensions.BindTo(Siemens.Collaboration.Net.Logging.ILogManager,System.Action{Siemens.Collaboration.Net.Logging.ILogEntry},System.Nullable{System.Int32})">
+            <summary>
+            Bind the log event to the specified binding and unbind on dispose of the return value.
+            </summary>
+            <param name="logManager">The log manager.</param>
+            <param name="binding">The binding.</param>
+            <param name="maxReEntranceCount"></param>
+            <returns>The unbind disposable.</returns>
+        </member>
+        <member name="M:LogProviderExtensions.Log``1(``0)">
+            <summary>
+            Gets access to the logger. If the source is a dynamic object, the logger is source specific, otherwise the logger is the global logger.
+            </summary>
+            <typeparam name="TSource">The type of the source.</typeparam>
+            <param name="source">The source on which the extension is invoked.</param>
+            <returns>The logger.</returns>
+        </member>
+        <member name="T:Requires.Logging">
+            <summary>
+            Requires Logging marker
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Logging.Core.LogManager">
+            <summary>
+            Logging Utility
+            </summary>
+        </member>
+        <member name="E:Siemens.Collaboration.Net.Logging.Core.LogManager.LogEvent">
+            <summary>
+            Fired, when a log entry has been made.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Logging.Core.LogManager.instance">
+            <summary>
+            Singleton instance
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.Core.LogManager.Instance">
+            <summary>
+            Gets the singleton instance
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.Core.LogManager.#ctor">
+            <summary>
+            Private singleton constructor
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.Core.LogManager.Log(Siemens.Collaboration.Net.Logging.ILogger,Siemens.Collaboration.Net.Logging.LogType,Siemens.Collaboration.Net.Logging.LogPriority,System.String,System.Object[])">
+            <summary>
+            Logs an entry of the given log type.
+            </summary>
+            <param name="logger">The logger that triggers the log.</param>
+            <param name="logType">The log entry type. See <see cref="T:Siemens.Collaboration.Net.Logging.LogType"/> for more information.</param>
+            <param name="logPriority">The log entry priority. See <see cref="T:Siemens.Collaboration.Net.Logging.LogPriority"/> for more information.</param>
+            <param name="message">The log message or message pattern.</param>
+            <param name="arguments">The arguments for the message pattern.</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.Core.LogManager.Log(Siemens.Collaboration.Net.Logging.ILogger,System.Exception)">
+            <summary>
+            Logs the given exception.
+            </summary>
+            <param name="logger">The logger that is used to log the exception.</param>
+            <param name="ex">The exception.</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.Core.LogManager.Log(Siemens.Collaboration.Net.Logging.ILogger,System.Exception,System.String,System.Object[])">
+            <summary>
+            Logs the given exception
+            </summary>
+            <param name="logger">The logger that is used to log the exception</param>
+            <param name="ex">The execption that should be logged.</param>
+            <param name="message">An additional message text or message pattern.</param>
+            <param name="arguments">The arguments for the message pattern.</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.Core.LogManager.GetMessage(System.String,System.Object[])">
+            <summary>
+            Merges the pattern and the arguments to a message.
+            </summary>
+            <param name="messagePattern">The message format pattern.</param>
+            <param name="arguments">The arguments of the message format pattern.
+            Can be 'null' and can contain 'null' elements.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Logging.ILogEntry">
+            <summary>
+            Interface declaring the methods to be implemented by the log entry.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ILogEntry.IsForwarded">
+            <summary>
+            Set to true if the log entry is forwarded.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ILogEntry.LogPriority">
+            <summary>
+            Gets the <see cref="P:Siemens.Collaboration.Net.Logging.ILogEntry.LogPriority"/> mode.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ILogEntry.Category">
+            <summary>
+            Gets the category of the entry.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ILogEntry.Time">
+            <summary>
+            Gets the time.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ILogEntry.Settings">
+            <summary>
+            Gets the log category.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ILogEntry.Message">
+            <summary>
+            Gets the log message.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ILogEntry.LogType">
+            <summary>
+            Gets the log type.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ILogEntry.MessageParameters">
+            <summary>
+            The message parameters
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ILogEntry.MessagePattern">
+            <summary>
+            The message pattern.????
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ILogEntry.ColorArgb">
+            <summary>
+            Gets the color of the message entry.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ILogEntry.IsEnabled">
+            <summary>
+            Determines whether the log entry is enabled.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Logging.ILogger">
+            <summary>
+            The logger interface.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ILogger.Settings">
+            <summary>
+            Gets the category of the logger.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ILogger.Manager">
+            <summary>
+            Gets the log manager.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ILogger.Source">
+            <summary>
+            Gets the source which has created the logger.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Logging.ILogger`1">
+            <summary>
+            The logger interface.
+            </summary>
+            <typeparam name="TSource">The type of the source that has created the logger.</typeparam>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ILogger`1.Source">
+            <summary>
+            Gets the source of which has created the logger.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Logging.ILogManager">
+            <summary>
+            The log manager interface.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.ILogManager.SuppressLogs(System.Func{Siemens.Collaboration.Net.Logging.ILogEntry,System.Boolean})">
+            <summary>
+            Suppress the log.
+            </summary>
+            <returns>Disposable</returns>
+        </member>
+        <member name="E:Siemens.Collaboration.Net.Logging.ILogManager.LogEvent">
+            <summary>
+            Fired, when a log entry has been made.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ILogManager.HasBindings">
+            <summary>
+            Determines whether the log manager is bound to a log handler.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ILogManager.MessageFormatPattern">
+            <summary>
+            Gets or sets the message format pattern that is used by the log manager to convert log entries to messages.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ILogManager.PerformanceLogRegistrationCounter">
+            <summary>
+            Counter for the performance log registrations.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.ILogManager.Log(Siemens.Collaboration.Net.Logging.ILogger,Siemens.Collaboration.Net.Logging.LogType,Siemens.Collaboration.Net.Logging.LogPriority,System.String,System.Object[])">
+            <summary>
+            Logs an entry of the given log type.
+            </summary>
+            <param name="logger">The logger that triggers the log.</param>
+            <param name="logType">The log entry type. See <see cref="T:Siemens.Collaboration.Net.Logging.LogType"/> for more information.</param>
+            <param name="logPriority">The log entry priority. See <see cref="T:Siemens.Collaboration.Net.Logging.LogPriority"/> for more information.</param>
+            <param name="message">The log message or message pattern.</param>
+            <param name="arguments">The arguments for the message pattern.</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.ILogManager.Log(Siemens.Collaboration.Net.Logging.ILogger,System.Exception)">
+            <summary>
+            Logs the given exception.
+            </summary>
+            <param name="logger">The logger that triggers the log.</param>
+            <param name="ex">The exception.</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.ILogManager.Log(Siemens.Collaboration.Net.Logging.ILogger,System.Exception,System.String,System.Object[])">
+            <summary>
+            Logs the given exception
+            </summary>
+            <param name="logger">The logger that triggers the log.</param>
+            <param name="ex">The execption that should be logged.</param>
+            <param name="message">An additional message text or message pattern.</param>
+            <param name="arguments">The arguments for the message pattern.</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.ILogManager.GetFormattedMessage(Siemens.Collaboration.Net.Logging.ILogEntry)">
+            <summary>
+            Creates a human readable message from the given log entry.
+            </summary>
+            <param name="logEntry">The log entry that should be converted to a string.</param>
+            <returns>The human readable log message.</returns>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.ILogManager.Log(Siemens.Collaboration.Net.Logging.ILogEntry,System.Boolean)">
+            <summary>
+            Logs the specified log entry.
+            </summary>
+            <param name="logEntry">The log entry.</param>
+            <param name="forwarded">Is the log forwared from other instance.</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.ILogManager.LogMethod``1(Siemens.Collaboration.Net.Logging.ILogger,System.String,System.Int32,System.String,System.Object,System.Delegate,System.Object[])">
+            <summary>
+            Creates enter and exit log entries for the specified method.
+            </summary>
+            <typeparam name="TResult">The type of the method result.</typeparam>
+            <param name="logger">The logger that triggers the log.</param>
+            <param name="filePath">The C# file path of the method definition.</param>
+            <param name="lineNumber">The C# file line number of the method definition.</param>
+            <param name="memberName">The method name.</param>
+            <param name="callingInstance">The class that contains the method.</param>
+            <param name="method">The method delegate.</param>
+            <param name="parameters">The parameters of the method.</param>
+            <returns>An result object that will create an exit method log, when disposed.</returns>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.ILogManager.GetLogger``1(System.String,Siemens.Collaboration.Net.Logging.LoggerSettings)">
+            <summary>
+            Gets the logger of the log manager.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Logging.ILogProvider">
+            <summary>
+            Interface for log provider
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Logging.LinkLogEntry">
+            <summary>
+            A custom log entry for file links.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LinkLogEntry.FilePath">
+            <summary>
+            Gets the file path to log.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.LinkLogEntry.#ctor(Siemens.Collaboration.Net.Logging.ILogger,System.String,Siemens.Collaboration.Net.Logging.LogType,Siemens.Collaboration.Net.Logging.LogPriority,System.String,System.Object[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="filePath"></param>
+            <param name="logger">The logger that triggered the log.</param>
+            <param name="logType">The kind of the log entry. See <see cref="T:Siemens.Collaboration.Net.Logging.LogType"/> for possible values.</param>
+            <param name="logPriority">The priority of the log entry. See <see cref="T:Siemens.Collaboration.Net.Logging.LogPriority"/> for possible values.</param>
+            <param name="messagePattern">The message pattern.</param>
+            <param name="arguments">The message argue</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.LinkLogEntry.#ctor(Siemens.Collaboration.Net.Logging.LoggerSettings,System.String,Siemens.Collaboration.Net.Logging.LogType,Siemens.Collaboration.Net.Logging.LogPriority,System.String,System.Object[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="settings">The logging settings.</param>
+            <param name="filePath">The file path of the log.</param>
+            <param name="logType">The kind of the log entry. See <see cref="T:Siemens.Collaboration.Net.Logging.LogType"/> for possible values.</param>
+            <param name="logPriority">The priority of the log entry. See <see cref="T:Siemens.Collaboration.Net.Logging.LogPriority"/> for possible values.</param>
+            <param name="messagePattern">The message pattern.</param>
+            <param name="arguments">The message argue</param>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Logging.LogCategoryAttribute">
+            <summary>
+            Defines the log category of the context where the attribute is applied.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.LogCategoryAttribute.#ctor(System.String,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Creates a new instance of the attribute <see cref="T:Siemens.Collaboration.Net.Logging.LogCategoryAttribute"/>.
+            </summary>
+            <param name="categoryName">The name of the category.</param>
+            <param name="red">The red component of the message color</param>
+            <param name="green">The green component of the message color</param>
+            <param name="blue">The blue component of the message color</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.LogCategoryAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of the attribute <see cref="T:Siemens.Collaboration.Net.Logging.LogCategoryAttribute"/>.
+            </summary>
+            <param name="categoryName">The name of the category.</param>
+            <param name="messageColorName">The name of the message logs color.</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.LogCategoryAttribute.#ctor(System.String,System.Drawing.Color)">
+            <summary>
+            Creates a new instance of the attribute <see cref="T:Siemens.Collaboration.Net.Logging.LogCategoryAttribute"/>.
+            </summary>
+            <param name="categoryName">The name of the category.</param>
+            <param name="color">The color of message logs.</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.LogCategoryAttribute.#ctor(System.String)">
+            <summary>
+            Creates a new instance of the attribute <see cref="T:Siemens.Collaboration.Net.Logging.LogCategoryAttribute"/>.
+            </summary>
+            <param name="categoryName">The name of the category.</param>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Logging.LogEntry">
+            <summary>
+            Contains information about a log entry.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.LogEntry.#ctor">
+            <summary>
+            Default constructor for serialization.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.LogEntry.#ctor(Siemens.Collaboration.Net.Logging.LoggerSettings,Siemens.Collaboration.Net.Logging.LogType,Siemens.Collaboration.Net.Logging.LogPriority,System.String,System.Object[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="settings">The settings.</param>
+            <param name="logType">The kind of the log entry. See <see cref="P:Siemens.Collaboration.Net.Logging.LogEntry.LogType"/> for possible values.</param>
+            <param name="logPriority">The priority of the log entry. See <see cref="P:Siemens.Collaboration.Net.Logging.LogEntry.LogPriority"/> for possible values.</param>
+            <param name="messagePattern">The message pattern.</param>
+            <param name="arguments">The message argue</param>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LogEntry.ColorArgb">
+            <summary>
+            Color of the log entry
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LogEntry.IsEnabled">
+            <summary>
+            Is the log entry enabled.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LogEntry.IsForwarded">
+            <summary>
+            Is the log entry forwarded.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LogEntry.LogPriority">
+            <summary>
+            Gets the <see cref="P:Siemens.Collaboration.Net.Logging.LogEntry.LogPriority"/> mode.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LogEntry.Time">
+            <summary>
+            Gets the time.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LogEntry.Message">
+            <summary>
+            Gets the log message.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LogEntry.Category">
+            <summary>
+            Gets the log category.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LogEntry.Settings">
+            <summary>
+            Gets the log category.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LogEntry.LogType">
+            <summary>
+            Gets the log type.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.LogEntry.ToString">
+            <summary>
+            Gets a human readable string that represents the <see cref="T:Siemens.Collaboration.Net.Logging.LogEntry"/> instance.
+            </summary>
+            <returns>A human readable string of the <see cref="T:Siemens.Collaboration.Net.Logging.LogEntry"/> instance.</returns>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LogEntry.MessageParameters">
+            <summary>
+            Gets the parameters of the message.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LogEntry.MessagePattern">
+            <summary>
+            Gets the message pattern.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Logging.LoggerSettings">
+            <summary>
+            Provides logger specific settings.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LoggerSettings.Category">
+            <summary>
+            Gets the log category.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LoggerSettings.EnabledPriorityLevel">
+            <summary>
+            Determines which log priorities will be forwarded to the bindings.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LoggerSettings.EnabledLogTypeLevel">
+            <summary>
+            Determines which log types will be forwarded to the bindings.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LoggerSettings.Enabled">
+            <summary>
+            Determines whether the logger is enabled.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LoggerSettings.MessageColor">
+            <summary>
+            Gets the message color.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.LoggerSettings.#ctor(System.String,System.Nullable{System.Drawing.Color},Siemens.Collaboration.Net.Logging.LogPriority,Siemens.Collaboration.Net.Logging.LogType)">
+            <summary>
+            Creates a new instance of the logger settings.
+            </summary>
+            <param name="category">The category that is used for the logger.</param>
+            <param name="messageColor">The color of messages of the logger.</param>
+            <param name="enabledPriorityLevel">Determines which log priorities will be forwarded to the bindings. By default, all priorities are enabled.</param>
+            <param name="enabledLogTypeLevel">Determines which log types will be forwarded to the bindings. By default, all log types are enabled.</param>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Logging.LogIgnoreAttribute">
+            <summary>
+            Can be used to ignore parts of parameter or method logs.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LogIgnoreAttribute.Ignore">
+            <summary>
+            Gets the ignore flags that determines which parts of the element should not be logged.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LogIgnoreAttribute.MaxValueLength">
+            <summary>
+            Determines the maximum log entry length.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.LogIgnoreAttribute.#ctor(Siemens.Collaboration.Net.Logging.LogIgnores,System.Int32)">
+            <summary>
+            Creates a new instance of the <see cref="T:Siemens.Collaboration.Net.Logging.LogIgnoreAttribute"/> class.
+            </summary>
+            <param name="logIgnore">The parts that should be ignored of the element on which the attribute is applied</param>
+            <param name="maxValueLength">The maximum length of the element log.</param>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Logging.LogIgnores">
+            <summary>
+            Determines which part of the parameter log should be ignored.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Logging.LogIgnores.None">
+            <summary>
+            Nothing should be ignored.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Logging.LogIgnores.Type">
+            <summary>
+            The parameter/method type should be ignored.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Logging.LogIgnores.Name">
+            <summary>
+            The parameter/method name should be ignored.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Logging.LogIgnores.Value">
+            <summary>
+            The parameter/method value should be ignored.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Logging.LogIgnores.Complete">
+            <summary>
+            The parameter/method should not be logged.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Logging.LogMessage">
+            <summary>
+            Log message struct
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LogMessage.Pattern">
+            <summary>
+            Message pattern
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LogMessage.Arguments">
+            <summary>
+            Message arguments
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.LogMessage.#ctor(System.String,System.Object[])">
+            <summary>
+            Log message
+            </summary>
+            <param name="pattern"><inheritdoc cref="P:Siemens.Collaboration.Net.Logging.LogMessage.Pattern"/></param>
+            <param name="arguments"><inheritdoc cref="P:Siemens.Collaboration.Net.Logging.LogMessage.Arguments"/></param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.LogMessage.#ctor(System.String,Siemens.Collaboration.Net.Logging.LogParameters)">
+            <summary>
+            Log message
+            </summary>
+            <param name="pattern"><inheritdoc cref="P:Siemens.Collaboration.Net.Logging.LogMessage.Pattern"/></param>
+            <param name="arguments"><inheritdoc cref="P:Siemens.Collaboration.Net.Logging.LogMessage.Arguments"/></param>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Logging.LogParameters">
+            <summary>
+            Log parameters struct
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.LogParameters.Values">
+            <summary>
+            Parameter values
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.LogParameters.#ctor(System.Object[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="parameters"><inheritdoc cref="P:Siemens.Collaboration.Net.Logging.LogParameters.Values"/></param>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Logging.Result`1">
+            <summary>
+            A disposable result wrapper.
+            </summary>
+            <typeparam name="T">The type of the result to wrapper.</typeparam>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.Result`1.#ctor(System.Action{`0})">
+            <summary>
+            Creates a new instance of <see cref="T:Siemens.Collaboration.Net.Logging.Result`1"/>.
+            </summary>
+            <param name="onDispose">The exit log action.</param>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.Result`1.Value">
+            <summary>
+            Gets or sets the result value.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.Result`1.Return(`0)">
+            <summary>
+            Log and return the method return value.
+            </summary>
+            <param name="returnValue">The return value of the function.</param>
+            <returns>The return value.</returns>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.Result`1.op_Implicit(Siemens.Collaboration.Net.Logging.Result{`0})~`0">
+            <summary>
+            Implicit cast operator from the result wrapper to the result.
+            </summary>
+            <param name="result">The result wrapper.</param>
+            <returns>The result value.</returns>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.Result`1.Dispose">
+            <summary>
+            Disposes the result wrapper.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Logging.FileLogEntry">
+            <summary>
+            File log entry
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.FileLogEntry.FileData">
+            <summary>
+            File data
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.FileLogEntry.FileName">
+            <summary>
+            File name
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.FileLogEntry.#ctor(Siemens.Collaboration.Net.Logging.ILogger,Siemens.Collaboration.Net.Logging.LogType,Siemens.Collaboration.Net.Logging.LogPriority,System.String,System.Byte[],System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="logger">Logger</param>
+            <param name="logType">Log type</param>
+            <param name="logPriority">Log priority</param>
+            <param name="message">Log message</param>
+            <param name="fileData"><inheritdoc cref="P:Siemens.Collaboration.Net.Logging.FileLogEntry.FileData"/></param>
+            <param name="fileName"><inheritdoc cref="P:Siemens.Collaboration.Net.Logging.FileLogEntry.FileName"/></param>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Logging.ScreenshotLogEntry">
+            <summary>
+            A custom log entry for screen shots.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.ScreenshotLogEntry.#ctor(Siemens.Collaboration.Net.Logging.ILogger,Siemens.Collaboration.Net.Logging.LogType,Siemens.Collaboration.Net.Logging.LogPriority,System.String,Siemens.Collaboration.Net.CoreExtensions.ICaptureScreenshot,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Object[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="logger">The logger that triggered the log.</param>
+            <param name="logType">The kind of the log entry. See <see cref="T:Siemens.Collaboration.Net.Logging.LogType"/> for possible values.</param>
+              /// <param name="logPriority">The priority of the log entry. See <see cref="T:Siemens.Collaboration.Net.Logging.LogPriority"/> for possible values.</param>
+            <param name="messagePattern">The message pattern.</param>
+            <param name="takeScreenshot">A function that takes a screen-shot on demand.</param>
+              <param name="arguments">The message argue</param>
+              <param name="offsetX">The x-offset in pixel of the screenshot.</param>
+              <param name="offsetY">The y-offset in pixel of the screenshot</param>
+              <param name="width">The width in pixel of the screenshot. If null, the width based on the offset will be taken.</param>
+              <param name="height">The height in pixel of the screenshot. If null, the height based on the offset will be taken.</param>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ScreenshotLogEntry.TakeScreenshot">
+            <summary>
+            A function that creates a screenshot on demand.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ScreenshotLogEntry.OffsetX">
+            <summary>
+            X offset
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ScreenshotLogEntry.OffsetY">
+            <summary>
+            Y offset
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ScreenshotLogEntry.Width">
+            <summary>
+            Width
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.ScreenshotLogEntry.Height">
+            <summary>
+            Height
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.ScreenshotLogEntry.#ctor(Siemens.Collaboration.Net.Logging.ILogger,Siemens.Collaboration.Net.Logging.LogType,Siemens.Collaboration.Net.Logging.LogPriority,System.String,System.Object[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="logger">The logger that triggered the log.</param>
+            <param name="logType">The kind of the log entry. See <see cref="T:Siemens.Collaboration.Net.Logging.LogType"/> for possible values.</param>
+            <param name="logPriority">The priority of the log entry. See <see cref="T:Siemens.Collaboration.Net.Logging.LogPriority"/> for possible values.</param>
+            <param name="messagePattern">The message pattern.</param>
+            <param name="arguments">The message argue</param>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Logging.SectionLogEntry">
+            <summary>
+            A log entry for sections
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.SectionLogEntry.SectionId">
+            <summary>
+            Id of the section (enter, exit)
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.SectionLogEntry.Enter">
+            <summary>
+            Determines whether this is the enter or exit logging.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.SectionLogEntry.Duration">
+            <summary>
+            Duration of the section log
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Logging.SectionLogEntry.#ctor(Siemens.Collaboration.Net.Logging.ILogger,System.Guid,System.Boolean,Siemens.Collaboration.Net.Logging.LogPriority,System.Drawing.Color,System.String,System.Object[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="logger">The logger that triggered the log.</param>
+            <param name="sectionId">Id of the section (enter, exit)</param>
+            <param name="enter">Determines whether this is the enter or exit logging.</param>
+            <param name="logPriority">The priority of the log entry. See <see cref="T:Siemens.Collaboration.Net.Logging.LogPriority"/> for possible values.</param>
+            <param name="color"></param>
+            <param name="messagePattern">The message pattern.</param>
+            <param name="arguments">The message argue</param>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.SectionLogEntry.Category">
+            <summary>
+            Section category name
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Logging.SectionLogEntry.Message">
+            <summary>
+            Section message
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Logging.LogType">
+            <summary>
+            Contains the possible log types.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Logging.LogType.Message">
+            <summary>
+            A message has been logged.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Logging.LogType.Warning">
+            <summary>
+            A warning has been logged.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Logging.LogType.Error">
+            <summary>
+            An error has been logged.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Logging.LogPriority">
+            <summary>
+            Contains the possible log priority levels. Warnings and errors always have a high priority.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Logging.LogPriority.Low">
+            <summary>
+            A low priority message has been logged.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Logging.LogPriority.Normal">
+            <summary>
+            A normal priority message has been logged.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Logging.LogPriority.High">
+            <summary>
+            A high priority message has been logged.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.CoreExtensions.ICaptureScreenshot">
+            <summary>
+            Screenshot capture interface
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.CoreExtensions.ICaptureScreenshot.TryCapture(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{Siemens.Collaboration.Net.CoreExtensions.ScreenshotFormat})">
+            <summary>
+            Try capture screenshot with the given parameters
+            </summary>
+            <param name="offsetX">X offset</param>
+            <param name="offsetY">Y offset</param>
+            <param name="width">Width</param>
+            <param name="height">Height</param>
+            <param name="preferredFormat">Format of the screenshot</param>
+            <returns></returns>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.CoreExtensions.ScreenshotFormat">
+            <summary>
+            Screenshot file format
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.CoreExtensions.ScreenshotFormat.Png">
+            <summary>
+            PNG
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.CoreExtensions.ScreenshotFormat.Jpg">
+            <summary>
+            JPG
+            </summary>
+        </member>
+    </members>
+</doc>

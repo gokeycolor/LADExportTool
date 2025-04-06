@@ -1,0 +1,2284 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Siemens.Collaboration.Net.OperatingSystem.Windows</name>
+    </assembly>
+    <members>
+        <member name="T:Siemens.Collaboration.Net.OperatingSystem.Windows.Credentials.InteractiveSessionCredentialsCreator">
+            <summary>
+            An interactive session credentials creator
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.Credentials.InteractiveSessionCredentialsCreator.AddInteractiveSessionCredentials(Credentials)">
+            <summary>
+            Add interactive session credentials
+            </summary>
+            <param name="credentials">Credentials</param>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.OperatingSystem.Windows.NativeMethods">
+            <summary>
+            Native methods
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.OperatingSystem.Windows.ShowWindowCommands">
+            <summary>
+            Show window commands
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ShowWindowCommands.SW_HIDE">
+            <summary>
+            Hides the window and activates another window.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ShowWindowCommands.SW_SHOWNORMAL">
+            <summary>
+            Activates and displays a window. If the window is minimized or maximized, the system restores it to its original size and position. An application should specify this flag when displaying the window for the first time.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ShowWindowCommands.SW_NORMAL">
+            <summary>
+            Activates and displays a window. If the window is minimized or maximized, the system restores it to its original size and position. An application should specify this flag when displaying the window for the first time.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ShowWindowCommands.SW_SHOWMINIMIZED">
+            <summary>
+            Activates the window and displays it as a minimized window.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ShowWindowCommands.SW_SHOWMAXIMIZED">
+            <summary>
+            Activates the window and displays it as a maximized window.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ShowWindowCommands.SW_MAXIMIZE">
+            <summary>
+            Maximizes the specified window.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ShowWindowCommands.SW_SHOWNOACTIVATE">
+            <summary>
+            Displays a window in its most recent size and position. This value is similar to <see cref="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ShowWindowCommands.SW_SHOWNORMAL"/>, except the window is not activated.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ShowWindowCommands.SW_SHOW">
+            <summary>
+            Activates the window and displays it in its current size and position.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ShowWindowCommands.SW_MINIMIZE">
+            <summary>
+            Minimizes the specified window and activates the next top-level window in the z-order.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ShowWindowCommands.SW_SHOWMINNOACTIVE">
+            <summary>
+            Displays the window as a minimized window. This value is similar to <see cref="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ShowWindowCommands.SW_SHOWMINIMIZED"/>, except the window is not activated.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ShowWindowCommands.SW_SHOWNA">
+            <summary>
+            Displays the window in its current size and position. This value is similar to <see cref="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ShowWindowCommands.SW_SHOW"/>, except the window is not activated.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ShowWindowCommands.SW_RESTORE">
+            <summary>
+            Activates and displays the window. If the window is minimized or maximized, the system restores it to its original size and position. An application should specify this flag when restoring a minimized window.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ShowWindowCommands.SW_SHOWDEFAULT">
+            <summary>
+            Items 10, 11 and 11 existed in the VB definition but not the c# definition - so I am assuming this was a mistake and have added them here.
+             Please forgive me if this is wrong!  I don't think it should have any negative impact.
+             According to what I have read elsewhere: The SW_SHOWDEFAULT makes sure the window is restored prior to showing, then activating.
+             And the 11's try to coerce a window to minimized or maximized.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ShowWindowCommands.SW_FORCEMINIMIZE">
+            <summary>
+            Force minimize
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ShowWindowCommands.SW_MAX">
+            <summary>
+            Maximize
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.OperatingSystem.Windows.ParentProcessUtilities">
+            <summary>
+            A utility class to determine a process parent.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.ParentProcessHandler.GetParentProcess(System.IntPtr)">
+            <summary>
+            Gets the parent process of a specified process.
+            </summary>
+            <param name="handle">The process handle.</param>
+            <returns>An instance of the Process class.</returns>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.TaskRunPrivileges">
+            <summary>
+            Task run privileges.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.TaskRunPrivileges.HIGHEST">
+            <summary>
+            Run task as admin
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.TaskRunPrivileges.LIMITED">
+            <summary>
+            Run task with user rights
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.TaskType.Version">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.RegistrationInfoType.DateValueSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.TriggersType.BootTriggerSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.TriggersType.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.TriggersType.RegistrationTriggerSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.TriggersType.IdleTriggerSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.TriggersType.TimeTriggerSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.TriggersType.EventTriggerSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.TriggersType.LogonTriggerSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.TriggersType.SessionStateChangeTriggerSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.TriggersType.CalendarTriggerSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.TriggerBaseType.StartBoundaryValueSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.TriggerBaseType.EndBoundaryValueSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.RepetitionType.Interval">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.RepetitionType.Duration">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.EventTriggerType.Subscription">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.EventTriggerType.NumberOfOccurrences">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.EventTriggerType.MatchingElement">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.EventTriggerType.ValueQueriesSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.EventTriggerType.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.NamedValues.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.NamedValue.TextValue">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.NamedValue.Name">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.LogonTriggerType.UserId">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.SessionStateChangeTriggerType.UserId">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.DailyScheduleType.DaysIntervalValue">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.DailyScheduleType.DaysIntervalValueSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.DailyScheduleType.DaysInterval">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.WeeklyScheduleType.WeeksIntervalValue">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.WeeklyScheduleType.WeeksIntervalValueSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.WeeklyScheduleType.WeeksInterval">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.MonthlyScheduleType.DaysOfMonth">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.MonthlyScheduleType.DaysOfMonthSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.MonthlyScheduleType.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.DaysOfMonthType.Day">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.DaysOfMonthType.DaySpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.DaysOfMonthType.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.MonthlyDayOfWeekScheduleType.Weeks">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.MonthlyDayOfWeekScheduleType.WeeksSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.MonthlyDayOfWeekScheduleType.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.WeeksType.Week">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.WeeksType.WeekSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.WeeksType.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.SettingsType.Priority">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.RestartType.Interval">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.RestartType.Count">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.IdleSettingsType.Duration">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.IdleSettingsType.WaitTimeout">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.NetworkSettingsType.Name">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.NetworkSettingsType.Id">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.PrincipalType.UserId">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.PrincipalType.LogonTypeValueSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.PrincipalType.GroupId">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.PrincipalType.RunLevelValueSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.PrincipalType.ProcessTokenSidTypeValueSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.PrincipalType.RequiredPrivilegesSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.PrincipalType.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.RequiredPrivilegesType.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.ActionsType.ExecSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.ActionsType.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.ActionsType.ComHandlerSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.ActionsType.SendEmailSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.ActionsType.ShowMessageSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.ExecType.Command">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.ExecType.WorkingDirectory">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.ComHandlerType.ClassId">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.SendEmailType.Server">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.SendEmailType.HeaderFieldsSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.SendEmailType.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.SendEmailType.Attachments">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.SendEmailType.AttachmentsSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.HeaderFieldsType.HeaderFieldSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.HeaderFieldsType.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.HeaderFieldType.Name">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.AttachmentsType.File">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.AttachmentsType.FileSpecified">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.AttachmentsType.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.ShowMessageType.Title">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.ShowMessageType.Body">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.TaskStartMode">
+            <summary>
+            Task start mode
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.TaskStartMode.ONLOGON">
+            <summary>
+            Task should run on start up.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.TaskStartMode.ONCE">
+            <summary>
+            Task should run once.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.TaskStartMode.MINUTE">
+            <summary>
+            Minute
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.OperatingSystem.Windows.UserManagement">
+            <summary>
+            User management helper
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.UserManagement.AddUserToLocalGroup(System.String,System.String,System.String)">
+            <summary>
+            Adds a user to a group.
+            </summary>
+            <param name="userDomainName">The user domain name.</param>
+            <param name="userName">The UserName to be added.</param>
+            <param name="groupName">The group to add to.</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.UserManagement.AddGroupToLocalGroup(System.String,System.String,System.String)">
+            <summary>
+            Add group to local group
+            </summary>
+            <param name="groupDomainName">The user domain name.</param>
+            <param name="groupName">The UserName to be added.</param>
+            <param name="localGroupName">The group to add to.</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.UserManagement.IsUserInRole(System.Security.Principal.WindowsBuiltInRole)">
+            <summary>
+            Verify if user in in role
+            </summary>
+            <param name="role">Windows role</param>
+            <returns>True if in role, otherwise false</returns>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.UserManagement.IsUserInRole(System.String)">
+            <summary>
+            Verify if user in in role
+            </summary>
+            <param name="role">Windows role</param>
+            <returns>True if in role, otherwise false</returns>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.UserManagement.AddUserToGroupAsync(System.String,System.String)">
+            <summary>
+            Add an user to a group (will prompt for admin privileges using UAC)
+            </summary>
+            <param name="groupName">Group name</param>
+            <param name="username">User name</param>
+            <returns></returns>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualKeyboard">
+            <summary>
+            Virtual keyboard to simulate keyboard inputs
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualKeyboard.KeyPress(Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode[])">
+            <summary>
+            Press one or more keys, multiple keys will be held down while the following keys are pressed
+            </summary>
+            <param name="keys">Keys to press</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualKeyboard.SendString(System.String)">
+            <summary>
+            Synthesizes keystrokes corresponding to the specified Unicode string,
+            sending them to the currently active window.
+            </summary>
+            <param name="s">The string to send.</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualKeyboard.KeyDown(Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode)">
+            <summary>
+            Send a key down and hold it down until sendkeyup method is called
+            </summary>
+            <param name="keyCode"></param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualKeyboard.KeyUp(Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode)">
+            <summary>
+            Release a key that is being hold down
+            </summary>
+            <param name="keyCode"></param>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.OperatingSystem.Windows.INPUT">
+            <summary>
+            http://msdn.microsoft.com/en-us/library/windows/desktop/ms646270(v=vs.85).aspx
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.OperatingSystem.Windows.MOUSEKEYBDHARDWAREINPUT">
+            <summary>
+            http://social.msdn.microsoft.com/Forums/en/csharplanguage/thread/f0e82d6e-4999-4d22-b3d3-32b25f61fb2a
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.OperatingSystem.Windows.HARDWAREINPUT">
+            <summary>
+            http://msdn.microsoft.com/en-us/library/windows/desktop/ms646310(v=vs.85).aspx
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.OperatingSystem.Windows.KEYBDINPUT">
+            <summary>
+            http://msdn.microsoft.com/en-us/library/windows/desktop/ms646310(v=vs.85).aspx
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.OperatingSystem.Windows.MOUSEINPUT">
+            <summary>
+            http://social.msdn.microsoft.com/forums/en-US/netfxbcl/thread/2abc6be8-c593-4686-93d2-89785232dacd
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode">
+            <summary>
+            Keycodes
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.MEDIA_NEXT_TRACK">
+            <summary>
+            Next track if a song is playing
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.MEDIA_PLAY_PAUSE">
+            <summary>
+            Play pause
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.MEDIA_PREV_TRACK">
+            <summary>
+            Previous track
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.MEDIA_STOP">
+            <summary>
+            Stop
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.ADD">
+            <summary>Key "+"</summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.MULTIPLY">
+            <summary>
+            "*" key
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.DIVIDE">
+            <summary>
+            "/" key
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.SUBTRACT">
+            <summary>
+            Subtract key "-"
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.BROWSER_BACK">
+            <summary>
+            Go Back
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.BROWSER_FAVORITES">
+            <summary>
+            Favorites
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.BROWSER_FORWARD">
+            <summary>
+            Forward
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.BROWSER_HOME">
+            <summary>
+            Home
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.BROWSER_REFRESH">
+            <summary>
+            Refresh
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.BROWSER_SEARCH">
+            <summary>
+            browser search
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.BROWSER_STOP">
+            <summary>
+            Stop
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.NUMPAD0">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.NUMPAD1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.NUMPAD2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.NUMPAD3">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.NUMPAD4">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.NUMPAD5">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.NUMPAD6">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.NUMPAD7">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.NUMPAD8">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.NUMPAD9">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F1">
+            <summary>
+            F1
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F10">
+            <summary>
+            F10
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F11">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F12">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F13">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F14">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F15">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F16">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F17">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F18">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F19">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F20">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F21">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F22">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F23">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F24">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F3">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F4">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F5">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F6">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F7">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F8">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.F9">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.OEM_1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.OEM_102">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.OEM_2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.OEM_3">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.OEM_4">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.OEM_5">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.OEM_6">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.OEM_7">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.OEM_8">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.OEM_CLEAR">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.OEM_COMMA">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.OEM_MINUS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.OEM_PERIOD">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.OEM_PLUS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_0">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_3">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_4">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_5">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_6">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_7">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_8">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_9">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_A">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_B">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_C">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_D">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_E">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_F">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_G">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_H">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_I">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_J">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_K">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_L">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_M">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_N">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_O">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_P">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_Q">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_R">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_S">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_T">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_U">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_V">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_W">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_X">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_Y">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.KEY_Z">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.VOLUME_DOWN">
+            <summary>
+            Decrese volume
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.VOLUME_MUTE">
+            <summary>
+            Mute volume
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.VOLUME_UP">
+            <summary>
+            Increase volue
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.SNAPSHOT">
+            <summary>
+            Take snapshot of the screen and place it on the clipboard
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.APPS">
+            <summary>Send right click from keyboard "key that is 2 keys to the right of space bar"</summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.BACKSPACE">
+            <summary>
+            Go Back or delete
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.CANCEL">
+            <summary>
+            Control + Break "When debuging if you step into an infinite loop this will stop debug"
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.CAPS_LOCK">
+            <summary>
+            Caps lock key to send cappital letters
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.CONTROL">
+            <summary>
+            Ctlr key
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.ALT">
+            <summary>
+            Alt key
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.DECIMAL">
+            <summary>
+            "." key
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.DELETE">
+            <summary>
+            Delete Key
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.DOWN">
+            <summary>
+            Arrow down key
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.END">
+            <summary>
+            End key
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.ESC">
+            <summary>
+            Escape key
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.HOME">
+            <summary>
+            Home key
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.INSERT">
+            <summary>
+            Insert key
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.LAUNCH_APP1">
+            <summary>
+            Open my computer
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.LAUNCH_APP2">
+            <summary>
+            Open calculator
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.LAUNCH_MAIL">
+            <summary>
+            Open default email in my case outlook
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.LAUNCH_MEDIA_SELECT">
+            <summary>
+            Opend default media player (itunes, winmediaplayer, etc)
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.LCONTROL">
+            <summary>
+            Left control
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.LEFT">
+            <summary>
+            Left arrow
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.LSHIFT">
+            <summary>
+            Left shift
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.LWIN">
+            <summary>
+            left windows key
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.PAGEDOWN">
+            <summary>
+            Next "page down"
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.NUMLOCK">
+            <summary>
+            Num lock to enable typing numbers
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.PAGE_UP">
+            <summary>
+            Page up key
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.RCONTROL">
+            <summary>
+            Right control
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.ENTER">
+            <summary>
+            Return key
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.RIGHT">
+            <summary>
+            Right arrow key
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.RSHIFT">
+            <summary>
+            Right shift
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.RWIN">
+            <summary>
+            Right windows key
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.SHIFT">
+            <summary>
+            Shift key
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.SPACE_BAR">
+            <summary>
+            Space back key
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.TAB">
+            <summary>
+            Tab key
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode.UP">
+            <summary>
+            Up arrow key
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualMouse">
+            <summary>
+            Virtual mouse to simulate mouse inputs
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualMouse.Delay">
+            <summary>
+            Delay between inputs
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualMouse.MouseEventFlags">
+            <summary>
+            Mouse event flags
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualMouse.SetCursorPosition(Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualMouse.MousePoint)">
+            <summary>
+            Set cursor to the given position
+            </summary>
+            <param name="point"></param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualMouse.SetCursorPosition(System.Int32,System.Int32)">
+            <summary>
+            <inheritdoc cref="M:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualMouse.SetCursorPosition(Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualMouse.MousePoint)"/>
+            </summary>
+            <param name="x">X coordinate</param>
+            <param name="y">Y coordinate</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualMouse.GetCursorPosition">
+            <summary>
+            Get the current mouse cursor position
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualMouse.Click(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Left mouse click at the given position
+            </summary>
+            <param name="x">X coordinate</param>
+            <param name="y">Y coordinate</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualMouse.DoubleClick(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Left double mouse click at the given position
+            </summary>
+            <param name="x">X coordinate</param>
+            <param name="y">Y coordinate</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualMouse.ScrollVertical(System.Int32)">
+            <summary>
+            Scroll vertically
+            </summary>
+            <param name="amount">A positive value indicates that the wheel was rotated forward, away from the user; a negative value indicates that the wheel was rotated backward, toward the user. One wheel click is defined as WHEEL_DELTA, which is 120.</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualMouse.ScrollHorizontal(System.Int32)">
+            <summary>
+            Scroll horizontal
+            </summary>
+            <param name="amount">A positive value indicates that the wheel was rotated forward, away from the user; a negative value indicates that the wheel was rotated backward, toward the user. One wheel click is defined as WHEEL_DELTA, which is 120.</param>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualMouse.MousePoint">
+            <summary>
+            Mouse position
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualMouse.MousePoint.X">
+            <summary>
+            X Coordinate
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualMouse.MousePoint.Y">
+            <summary>
+            Y Coordinate
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualMouse.MousePoint.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="x"><inheritdoc cref="F:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualMouse.MousePoint.X"/></param>
+            <param name="y"><inheritdoc cref="F:Siemens.Collaboration.Net.OperatingSystem.Windows.VirtualMouse.MousePoint.Y"/></param>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Extensions.ShareInformation">
+            <summary>
+            Share information class.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Extensions.ShareInformation.NetworkDriveLetter">
+            <summary>
+            Gets the network drive letter.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Extensions.ShareInformation.NetworkLocation">
+            <summary>
+            Gets the unc network location.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Extensions.ShareInformation.Credentials">
+            <summary>
+            Credentials
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Extensions.ShareInformation.WithCurrentPrivilegesOnly">
+            <summary>
+            Gets if share is admin only
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Extensions.ShareInformation.#ctor(System.Char,System.IO.DirectoryInfo,Credentials,System.Boolean)">
+            <summary>
+            Constructor for share information.
+            </summary>
+            <param name="letter">Drive letter.</param>
+            <param name="networkLocation">Unc network location.</param>
+            <param name="credentials">The credentials to connect.</param>
+            <param name="withCurrentPrivilegesOnly">Is admin only share.</param>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Extensions.TaskQueryResult">
+            <summary>
+            Task query result
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Extensions.TaskQueryResult.TaskName">
+            <summary>
+            Task name
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Extensions.TaskQueryResult.Status">
+            <summary>
+            Running status of task
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Extensions.TaskQueryResult.LastRunTime">
+            <summary>
+            Last time task was started.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Extensions.MessageBoxStyle">
+            <summary>
+            Message box states
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Extensions.MessageBoxStyle.MB_SETFOREGROUND">
+            <summary>
+            The message box becomes the foreground window. Internally, the system calls the SetForegroundWindow function for the message box.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Extensions.MessageBoxStyle.MB_TOPMOST">
+            <summary>
+            The message box is created with the WS_EX_TOPMOST window style.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Extensions.MessageBoxType">
+            <summary>
+            Message Box types
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Extensions.MessageBoxType.MB_ABORTRETRYIGNORE">
+            <summary>
+            The message box contains three push buttons: Abort, Retry, and Ignore.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Extensions.MessageBoxType.MB_CANCELTRYCONTINUE">
+            <summary>
+            The message box contains three push buttons: Cancel, Try Again, Continue. Use this message box type instead of MB_ABORTRETRYIGNORE.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Extensions.MessageBoxType.MB_HELP">
+            <summary>
+            Adds a Help button to the message box. When the user clicks the Help button or presses F1, the system sends a WM_HELP message to the owner.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Extensions.MessageBoxType.MB_OK">
+            <summary>
+            The message box contains one push button: OK. This is the default.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Extensions.MessageBoxType.MB_OKCANCEL">
+            <summary>
+            The message box contains two push buttons: OK and Cancel.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Extensions.MessageBoxType.MB_RETRYCANCEL">
+            <summary>
+            The message box contains two push buttons: Retry and Cancel.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Extensions.MessageBoxType.MB_YESNO">
+            <summary>
+            The message box contains two push buttons: Yes and No.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Extensions.MessageBoxType.MB_YESNOCANCEL">
+            <summary>
+            The message box contains three push buttons: Yes, No, and Cancel.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Extensions.WindowState">
+            <summary>
+            Enum containing the possible window states
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Extensions.WindowState.Hide">
+            <summary>
+            The window is hidden.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Extensions.WindowState.Normal">
+            <summary>
+            The window is normal.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Extensions.WindowState.Minimized">
+            <summary>
+            The window is minimized.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.Extensions.WindowState.Maximized">
+            <summary>
+            The window is maximized.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Framework.ScreenResolutionManagement">
+            <summary>
+            Provides methods for managing the desktop resolutions.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Framework.ScreenResolutionManagement.ScreenSettingInfo">
+            <summary>
+            Provides infos of the available screen setting.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Framework.ScreenResolutionManagement.ScreenSettingInfo.Resolution">
+            <summary>
+            The screen resolution in pixel.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Framework.ScreenResolutionManagement.ScreenSettingInfo.ColorDepth">
+            <summary>
+            The color depth in bit.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Framework.ScreenResolutionManagement.ScreenSettingInfo.Frequency">
+            <summary>
+            The frequency.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Framework.ScreenResolutionManagement.GetAvailableScreenSettings">
+            <summary>
+            Gets the available screen settings.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Framework.ScreenResolutionManagement.ChangeResolution(System.Int32,System.Int32)">
+            <summary>
+            Change the screen resolution.
+            </summary>
+            <param name="width">The with of the screen in pixel.</param>
+            <param name="height">The height of the screen in pixel</param>
+            <returns>false if a reboot is required to make the change effective, otherwise true.</returns>
+        </member>
+        <member name="T:RobocopyExtensions">
+            <summary>
+            Robobopy extensions
+            </summary>
+        </member>
+        <member name="M:RobocopyExtensions.RobocopyTo(System.IO.DirectoryInfo,System.IO.DirectoryInfo,System.String[])">
+            <summary>
+            Copy contents of <paramref name="source"/> directory to <paramref name="target"/> directory using Robocopy command
+            </summary>
+            <param name="source"></param>
+            <param name="target"></param>
+            <param name="excludePatterns"></param>
+        </member>
+        <member name="M:RobocopyExtensions.RobocopyCommand(Siemens.Collaboration.Net.Extensions.ISystemMarker,System.IO.DirectoryInfo,System.IO.DirectoryInfo,System.String[],System.Collections.Generic.IEnumerable{System.String},System.IO.FileInfo,System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Boolean,System.Boolean,System.Nullable{System.Int32})">
+            <summary>
+            Private RoboCopy for array of files and folders
+            </summary>
+            <param name="system">The system on which this method is invoked.</param>
+            <param name="sourceDirectory">Source directory to clone</param>
+            <param name="targetDirectory">Target directory to copy to</param>
+            <param name="excludeDirectoryPatterns"></param>
+            <param name="includePatterns">Array of files/directories</param>
+            <param name="robocopyOutputFile">Output file for logging</param>
+            <param name="mirrorFilePermissions">Should source be mirrored to target.</param>
+            <param name="degreeOfParallelism">Specifies the number of parallel threads that are used to copy. By default no parallelism is done.</param>
+            <param name="restartMode">Determines whether the files are copied in a mode that allows the restart of the copy operation at a later time. (default true, when process is elevated, otherwise false)</param>
+            <param name="suppressFileProgress"></param>
+            <param name="unbuffered"></param>
+            <param name="copyDirectoryDepth">Determines the depth of the folder hierarchy to be copied. If null, the full hierarchy (recursive) will be copied.</param>
+            <returns>Error code of RoboCopy operation</returns>
+        </member>
+        <member name="M:RobocopyExtensions.RobocopyCommand(System.IO.DirectoryInfo,System.IO.DirectoryInfo,Siemens.Collaboration.Net.Extensions.SequenceOf{System.String},Siemens.Collaboration.Net.Extensions.SequenceOf{System.String},System.IO.FileInfo,System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Boolean,System.Boolean,System.Nullable{System.Int32})">
+            <summary>
+            Private RoboCopy for array of files and folders
+            </summary>
+            <param name="sourceDirectory">Source directory to clone</param>
+            <param name="targetDirectory">Target directory to copy to</param>
+            <param name="excludeDirectoryPatterns"></param>
+            <param name="includePatterns">Array of files/directories</param>
+            <param name="robocopyOutputFile">Output file for logging</param>
+            <param name="mirrorFilePermissions">Should source be mirrored to target.</param>
+            <param name="degreeOfParallelism">Specifies the number of parallel threads that are used to copy. By default no parallelism is done.</param>
+            <param name="restartMode">Determines whether the files are copied in a mode that allows the restart of the copy operation at a later time. (default true, when process is elevated, otherwise false)</param>
+            <param name="suppressFileProgress"></param>
+            <param name="unbuffered"></param>
+            <param name="copyDirectoryDepth">Determines the depth of the folder hierarchy to be copied. If null, the full hierarchy (recursive) will be copied.</param>
+            <returns>Error code of RoboCopy operation</returns>
+        </member>
+        <member name="T:RegistryRemoteExecutorExtensions">
+            <summary>
+            RegistryRemoteExecutor Extensions
+            </summary>
+        </member>
+        <member name="M:RegistryRemoteExecutorExtensions.StartAsScheduledTask(Siemens.Collaboration.Net.Extensions.ProcessRunInfo,Credentials,System.Boolean,System.Nullable{System.TimeSpan},System.String)">
+            <summary>
+            Start an process as with scheduled task.
+            </summary>
+            <param name="runInfo">The info for the process run that should be started as scheduled task.</param>
+            <param name="timeout">The timeout for the task run.</param>
+            <param name="taskName">Name of the task.</param>
+            <param name="credentials">Username to start the task with.</param>
+            <param name="runWithHigherPrivileges">Should the task run with higher privileges.</param>
+            <returns>Return the output of the task.</returns>
+        </member>
+        <member name="M:RegistryRemoteExecutorExtensions.DisableClearType(Siemens.Collaboration.Net.Extensions.IProcessExecutor)">
+            <summary>
+            Disable clear type for a user.
+            </summary>
+            <param name="executor">The process executor that is used to perform the operation.</param>
+        </member>
+        <member name="M:RegistryRemoteExecutorExtensions.DisableNetworkExecutionWarning(Siemens.Collaboration.Net.Extensions.IProcessExecutor)">
+            <summary>
+            Disable network execution warning.
+            </summary>
+            <param name="executor">The process executor that is used to perform the operation.</param>
+        </member>
+        <member name="M:RegistryRemoteExecutorExtensions.EnableAutoLogin(Siemens.Collaboration.Net.Extensions.IProcessExecutor,Credentials)">
+            <summary>
+            Enable automatic login of a user on windows startup
+            </summary>
+            <param name="executor">The process executor that is used to perform the operation.</param>
+            <param name="credentials">Credentials</param>
+        </member>
+        <member name="M:RegistryRemoteExecutorExtensions.RemoveAutoLogin(Siemens.Collaboration.Net.Extensions.IProcessExecutor)">
+            <summary>
+            Remove automatic login on windows startup
+            </summary>
+            <param name="executor">The process executor that is used to perform the operation.</param>
+        </member>
+        <member name="M:RegistryRemoteExecutorExtensions.ChangeNetworkCategories(Siemens.Collaboration.Net.Extensions.IProcessExecutor,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="executor">The process executor that is used to perform the operation.</param>
+            <param name="toPrivate">Network category is private, otherwise public</param>
+        </member>
+        <member name="T:RegistryRemoteExecutorExtensions.RegistryValueKind">
+            <summary>
+            Registry value kinds
+            </summary>
+        </member>
+        <member name="F:RegistryRemoteExecutorExtensions.RegistryValueKind.String">
+            <summary>A null-terminated string. This value is equivalent to the Win32 API registry data type REG_SZ.</summary>
+        </member>
+        <member name="F:RegistryRemoteExecutorExtensions.RegistryValueKind.ExpandString">
+            <summary>A null-terminated string that contains unexpanded references to environment variables, such as %PATH%, that are expanded when the value is retrieved. This value is equivalent to the Win32 API registry data type REG_EXPAND_SZ.</summary>
+        </member>
+        <member name="F:RegistryRemoteExecutorExtensions.RegistryValueKind.Binary">
+            <summary>Binary data in any form. This value is equivalent to the Win32 API registry data type REG_BINARY.</summary>
+        </member>
+        <member name="F:RegistryRemoteExecutorExtensions.RegistryValueKind.DWord">
+            <summary>A 32-bit binary number. This value is equivalent to the Win32 API registry data type REG_DWORD.</summary>
+        </member>
+        <member name="F:RegistryRemoteExecutorExtensions.RegistryValueKind.MultiString">
+            <summary>An array of null-terminated strings, terminated by two null characters. This value is equivalent to the Win32 API registry data type REG_MULTI_SZ.</summary>
+        </member>
+        <member name="F:RegistryRemoteExecutorExtensions.RegistryValueKind.QWord">
+            <summary>A 64-bit binary number. This value is equivalent to the Win32 API registry data type REG_QWORD.</summary>
+        </member>
+        <member name="M:RegistryRemoteExecutorExtensions.AddRegistryKeyValue(Siemens.Collaboration.Net.Extensions.IProcessExecutor,System.String,System.String,System.Int32,System.Boolean)">
+            <summary>
+            Add a registry key value
+            </summary>
+            <param name="executor">The process executor that is used to perform the operation.</param>
+            <param name="keyPath">Path to the key</param>
+            <param name="valueName">The value, under the selected RegKey</param>
+            <param name="value">Value to add</param>
+            <param name="force">Force an update without prompting "Value exists, overwrite Y/N"</param>
+        </member>
+        <member name="M:RegistryRemoteExecutorExtensions.AddRegistryKeyValue(Siemens.Collaboration.Net.Extensions.IProcessExecutor,System.String,System.String,System.String,RegistryRemoteExecutorExtensions.RegistryValueKind,System.Boolean)">
+            <summary>
+            Add a registry key value
+            </summary>
+            <param name="executor">The process executor that is used to perform the operation.</param>
+            <param name="keyPath">Path to the key</param>
+            <param name="valueName">The value, under the selected RegKey</param>
+            <param name="value">Value to add</param>
+            <param name="type">Registry value kind</param>
+            <param name="force">Force an update without prompting "Value exists, overwrite Y/N"</param>
+        </member>
+        <member name="M:RegistryRemoteExecutorExtensions.DeleteRegistryKeyValue(Siemens.Collaboration.Net.Extensions.IProcessExecutor,System.String,System.String,System.Boolean)">
+            <summary>
+            Delete a registry key value
+            </summary>
+            <param name="executor">The process executor that is used to perform the operation.</param>
+            <param name="keyPath">Path to the key</param>
+            <param name="valueName">The value, under the selected RegKey</param>
+            <param name="force">Force an update without prompting "Value exists, overwrite Y/N"</param>
+        </member>
+        <member name="M:RegistryRemoteExecutorExtensions.QueryRegistrySubKeys(Siemens.Collaboration.Net.Extensions.IProcessExecutor,System.String)">
+            <summary>
+            Query all subkeys and values
+            </summary>
+            <param name="executor">The process executor that is used to perform the operation.</param>
+            <param name="keyPath">Path to the registry key</param>
+            <returns></returns>
+        </member>
+        <member name="T:ScheduledTaskRemoteExecutorExtensions">
+            <summary>
+            Remote executor task extensions
+            </summary>
+        </member>
+        <member name="M:ScheduledTaskRemoteExecutorExtensions.RunScheduledTask(Siemens.Collaboration.Net.Extensions.IProcessExecutor,System.String,System.Boolean)">
+            <summary>
+            Runs a scheduled task.
+            </summary>
+            <param name="system">The system instance on which this extension is invoked.</param>
+            <param name="taskName">The name of the task</param>
+            <param name="throwException">Determines whether an exception should be thrown if the task command was not successful.</param>
+            <returns>The process output.</returns>
+        </member>
+        <member name="M:ScheduledTaskRemoteExecutorExtensions.WaitForScheduledTaskState(Siemens.Collaboration.Net.Extensions.IProcessExecutor,System.String,System.Nullable{System.TimeSpan},System.String)">
+            <summary>
+            Wait until <paramref name="taskName"/> changed to <paramref name="status"/>
+            </summary>
+            <param name="system">The system instance on which this extension is invoked</param>
+            <param name="taskName">Name of the task</param>
+            <param name="timeSpan">Timeout</param>
+            <param name="status">Expected task state</param>
+        </member>
+        <member name="M:ScheduledTaskRemoteExecutorExtensions.GetScheduledTaskStatus(Siemens.Collaboration.Net.Extensions.IProcessExecutor,System.String)">
+            <summary>
+            Get result of scheduled task status.
+            </summary>
+            <param name="system">The system instance on which this extension is invoked.</param>
+            <param name="taskName">The name of the task</param>
+            <returns></returns>
+        </member>
+        <member name="M:ScheduledTaskRemoteExecutorExtensions.QueryScheduledTasks(Siemens.Collaboration.Net.Extensions.IProcessExecutor,System.String,System.Boolean)">
+            <summary>
+            Creates a scheduled task
+            </summary>
+            <param name="system">The system instance on which this extension is invoked.</param>
+            <param name="taskName">A concrete name of the task that should be queried. If null, all scheduled tasks will be returned.</param>
+            <param name="throwException">Determines whether an exception should be thrown when the validation of the query fails.</param>
+            <returns>The process output.</returns>
+        </member>
+        <member name="M:ScheduledTaskRemoteExecutorExtensions.CreateScheduledTask(Siemens.Collaboration.Net.Extensions.IProcessExecutor,System.String,System.IO.FileInfo,System.String,Credentials,Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.TaskStartMode,Siemens.Collaboration.Net.OperatingSystem.Windows.ScheduledTasks.TaskRunPrivileges,System.Nullable{System.TimeSpan},System.Nullable{System.TimeSpan},System.Nullable{System.ValueTuple{System.String,Credentials}},System.Boolean)">
+            <summary>
+            Creates a scheduled task
+            </summary>
+            <param name="executor">The process executor. Can be the local process executor or any remote executor.</param>
+            <param name="taskName">The name of the task</param>
+            <param name="applicationFile">File Info for the application.</param>
+            <param name="arguments">The application arguments</param>
+            <param name="credentials">The stored credentials under which the task should be executor.</param>
+            <param name="taskStartMode">Define task start mode - Default: ONLOGON</param>
+            <param name="privileges">Determines whether the task should run with highest privileges.</param>
+            <param name="delay">Start delay.</param>
+            <param name="repeatInterval"></param>
+            <param name="remoteCreationInfo">Information about the target machine that is needed to create the scheduled task remotely.</param>
+            <param name="throwException">Determines whether an exception should be thrown if the task command was not successful.</param>
+            <returns>The process output.</returns>
+        </member>
+        <member name="M:ScheduledTaskRemoteExecutorExtensions.CreateScheduledTaskByXml(Siemens.Collaboration.Net.Extensions.IProcessExecutor,System.String,System.IO.FileInfo,System.Boolean)">
+            <summary>
+            Create an scheduled task by import of an xml
+            </summary>
+            <param name="executor">The process executor. Can be the local process executor or any remote executor.</param>
+            <param name="taskName">Task name to import</param>
+            <param name="xmlFile">xml file to import.</param>
+            <param name="throwException">Throw an exception if import go wrong.</param>
+            <returns>The output of the task creation process.</returns>
+        </member>
+        <member name="M:ScheduledTaskRemoteExecutorExtensions.DisableScheduledTask(Siemens.Collaboration.Net.Extensions.IProcessExecutor,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Disables a scheduled task
+            </summary>
+            <param name="executor">The process executor. Can be the local process executor or any remote executor.</param>
+            <param name="taskName">The name of the task</param>
+            <param name="user">The user name under which the task is running</param>
+            <param name="password">The password for this user name.</param>
+            <param name="throwException">Determines whether an exception should be thrown if the task command was not successful.</param>
+            <returns>The process output.</returns>
+        </member>
+        <member name="M:ScheduledTaskRemoteExecutorExtensions.DeleteScheduledTask(Siemens.Collaboration.Net.Extensions.IProcessExecutor,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Disables a scheduled task
+            </summary>
+            <param name="executor">The process executor that is used to perform the operation.</param>
+            <param name="taskName">The name of the task</param>
+            <param name="silent">Determines whether the deletion should be forced.</param>
+            <param name="throwException">Determines whether an exception should be thrown if the task command was not successful.</param>
+            <returns>The process output.</returns>
+        </member>
+        <member name="T:VirtualKeyboardExtension">
+            <summary>
+            Virtual keyboard extensions
+            </summary>
+        </member>
+        <member name="M:VirtualKeyboardExtension.SendKeys(System.Diagnostics.Process,Siemens.Collaboration.Net.OperatingSystem.Windows.KeyCode[])">
+            <summary>
+            Press one or more keys, multiple keys will be held down while the following keys are pressed
+            </summary>
+            <param name="process">Process to send the keys to</param>
+            <param name="keys">Key which will be held while pressing (Ctrl, Shift, Alt, ...)</param>
+        </member>
+        <member name="M:VirtualKeyboardExtension.SendKeys(System.Diagnostics.Process,System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            Sends a string of keys to process
+            </summary>
+            <param name="process">Process to send the text to</param>
+            <param name="text">The string to send.</param>
+            <param name="waitForInputIdleTimeout">Time to wait until process is ready for inputs</param>
+        </member>
+        <member name="T:Extensions">
+            <summary>
+            Global extensions
+            </summary>
+        </member>
+        <member name="M:Extensions.ShowMessageBox(Siemens.Collaboration.Net.Extensions.ISystemMarker,System.String,System.String,Siemens.Collaboration.Net.Extensions.MessageBoxType)">
+            <summary>
+            Show message box
+            </summary>
+            <param name="system">The system instance on which this extension is invoked</param>
+            <param name="text">Message box text</param>
+            <param name="header">Message box title</param>
+            <param name="boxType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Extensions.ShowInputBox(Siemens.Collaboration.Net.Extensions.ISystemMarker,System.String,System.String,System.String)">
+            <summary>
+            Show a input box
+            </summary>
+            <param name="system">The system instance on which this extension is invoked</param>
+            <param name="title">Input box title</param>
+            <param name="prompt">Prompt to show</param>
+            <param name="defaultResponse">Default response</param>
+        </member>
+        <member name="M:Extensions.TryCloseWindow(System.Diagnostics.Process,System.TimeSpan,System.Boolean)">
+            <summary>
+            Tries to close the process via its main window, but kills the process if it doesn't close within the specified timeout.
+            </summary>
+            <param name="process">The process on which the extension is invoked.</param>
+            <param name="killAfterNotClosingTimeout">The timeout after which the process is killed, when its not closed before.</param>
+            <param name="disposeProcess">Determines whether the process instance itself should be disposed by this function.</param>
+        </member>
+        <member name="M:Extensions.Authenticate(System.IO.DirectoryInfo,System.String,System.Security.SecureString,System.Boolean)">
+            <summary>
+            Try to authenticate to the share without override the existing credentials. If fails, try again to authenticate with overriding the 
+            existing credentials. If fails an exception is thrown. 
+            </summary>
+            <param name="share"></param>
+            <param name="userNameWithOrWithoutDomain"></param>
+            <param name="password"></param>
+            <param name="withAdminContext">Decides whether the authentication should be made under admin context</param>
+            <returns></returns>
+        </member>
+        <member name="M:Extensions.Authenticate(System.IO.DirectoryInfo,System.String,System.Security.SecureString,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Try to authenticate to the share without override the existing credentials. If fails, try again to authenticate with overriding the 
+            existing credentials. If fails an exception is thrown. 
+            </summary>
+            <param name="share">Share directory</param>
+            <param name="userNameWithOrWithoutDomain">Share username</param>
+            <param name="password">Share password</param>
+            <param name="withAdminContext">Decides whether the authentication should be made under admin context</param>
+            <param name="overwrite">Overwrite if credentials exist</param>
+            <param name="throwException">Throw exception if share can not be accessed with the given credentials</param>
+            <returns></returns>
+        </member>
+        <member name="M:Extensions.VirtualKeyboard(Siemens.Collaboration.Net.Extensions.ISystemMarker)">
+            <summary>
+            Gets the global virtual keyboard
+            </summary>
+            <param name="system">The system marker on which the extension is invoked.</param>
+            <returns>Virtual keyboard</returns>
+        </member>
+        <member name="M:Extensions.VirtualMouse(Siemens.Collaboration.Net.Extensions.ISystemMarker)">
+            <summary>
+            Gets the global virtual mouse
+            </summary>
+            <param name="system">The system marker on which the extension is invoked.</param>
+            <returns>Virtual keyboard</returns>
+        </member>
+        <member name="M:Extensions.NumberOfLogicalCores(Siemens.Collaboration.Net.Extensions.ISystemMarker)">
+            <summary>
+            Get the number of logical cores on the local machine
+            </summary>
+            <param name="system">System marker</param>
+            <returns>Number of logical cores</returns>
+        </member>
+        <member name="M:Extensions.Children(System.Diagnostics.Process)">
+            <summary>
+            Child processes of <paramref name="process"/>
+            </summary>
+            <param name="process">The parent process</param>
+            <returns>Enumerable list of all child processes</returns>
+        </member>
+        <member name="M:Extensions.Parents(System.Diagnostics.Process,System.Boolean)">
+            <summary>
+            Parents of <paramref name="process"/>
+            </summary>
+            <param name="process">Child process</param>
+            <param name="includeSelf">Include own process</param>
+            <returns>Enumerable list of all parent processes</returns>
+        </member>
+        <member name="M:Extensions.Parent(System.Diagnostics.Process)">
+            <summary>
+            Gets the parent process of the give process.
+            </summary>
+            <param name="process"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Extensions.Maximize(System.Diagnostics.Process)">
+            <summary>
+            Maximize the process.
+            </summary>
+            <param name="process">Process to maximize.</param>
+        </member>
+        <member name="M:Extensions.BringToForeground(System.Diagnostics.Process)">
+            <summary>
+            Brings the main window of the given process to the foreground.
+            </summary>
+            <param name="process"></param>
+        </member>
+        <member name="M:Extensions.SetWindowState(System.Diagnostics.Process,NativeWindowState)">
+            <summary>
+            Set window state of process
+            </summary>
+            <param name="process">Process to change window state</param>
+            <param name="windowState">Windows state to change to</param>
+        </member>
+        <member name="M:Extensions.DeleteFast(System.IO.DirectoryInfo,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Delete one or more files
+            </summary>
+            <param name="directory">Directory</param>
+            <param name="pattern">Pattern of files to delete</param>
+            <param name="recursive">Delete from all Subfolders</param>
+            <param name="deleteReadOnly">Ignore read-only setting and delete anyway</param>
+            <param name="quiet">Quiet mode, do not give a Yes/No Prompt before deleting.</param>
+            <param name="requestPerFile">Give a Yes/No Prompt before deleting</param>
+        </member>
+        <member name="M:Extensions.SetupShares(Siemens.Collaboration.Net.Extensions.ISystemMarker,Siemens.Collaboration.Net.Extensions.ShareInformation[])">
+            <summary>
+            Sets up a network drive for the current user.
+            </summary>
+            <param name="system">The system on which the extension is being invoked.</param>
+            <param name="networkDrives">Collection of network path and credentials.</param>
+            <returns>The exit code for the mapping process.</returns>
+        </member>
+        <member name="M:Extensions.ConnectShare(Siemens.Collaboration.Net.Extensions.ISystemMarker,System.String,System.String,Credentials,System.Boolean,System.Nullable{System.Boolean})">
+            <summary>
+            Sets up a network drive for the current user.
+            </summary>
+            <param name="system">The system on which the extension is being invoked.</param>
+            <param name="networkDrive">The name of the network drive to be set</param>
+            <param name="networkPath">The path of the share.</param>
+            <param name="shareCredentials">The credentials that shall be used to connect</param>
+            <param name="persistent"></param>
+            <param name="withCurrentPrivilegesOnly"></param>
+            <returns>The exit code for the mapping process.</returns>
+        </member>
+        <member name="M:Extensions.DeleteShare(Siemens.Collaboration.Net.Extensions.ISystemMarker,System.String,System.Nullable{System.Boolean})">
+            <summary>
+            Delete network share from system.
+            </summary>
+            <param name="system">The system on which the extension is being invoked.</param>
+            <param name="networkDrive">The name of the network drive to be set</param>
+            <param name="withCurrentPrivilegesOnly"></param>
+        </member>
+        <member name="M:Extensions.NetExecutable(Siemens.Collaboration.Net.Extensions.ISystemMarker)">
+            <summary>
+            Get net.exe
+            </summary>
+            <param name="system"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Extensions.ClearShares(Siemens.Collaboration.Net.Extensions.ISystemMarker,System.Nullable{System.Boolean})">
+            <summary>
+            Clear the shares.
+            </summary>
+            <param name="system">The system on which the extension is being invoked.</param>
+            <param name="withCurrentPrivilegesOnly"></param>
+        </member>
+        <member name="M:Extensions.DisconnectShare(Siemens.Collaboration.Net.Extensions.ISystemMarker,System.Char,System.Nullable{System.Boolean})">
+            <summary>
+            Disconnect a network drive
+            </summary>
+            <param name="system">The system on which the extension is being invoked.</param>
+            <param name="driveLetter">Drive letter to disconnect from system.</param>
+            <param name="withCurrentPrivilegesOnly"></param>
+        </member>
+        <member name="M:Extensions.GetShare(Siemens.Collaboration.Net.Extensions.ISystemMarker,System.String)">
+            <summary>
+            Gets the shares
+            </summary>
+            <param name="system">The system instance on which this extension is invoked.</param>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Extensions.CreateUser(Siemens.Collaboration.Net.Extensions.ISystemMarker,System.String,System.String)">
+            <summary>
+            Creates a new local user.
+            </summary>
+            <param name="system">The system instance on which this extension is invoked.</param>
+            <param name="userName">The user name to be added.</param>
+            <param name="password">The password to be used</param>
+            <returns>The process exit code.</returns>
+        </member>
+        <member name="M:Extensions.GetShares(Siemens.Collaboration.Net.Extensions.ISystemMarker)">
+            <summary>
+            Get all current connected Shares
+            </summary>
+            <param name="system">The system on which the extension is being invoked.</param>
+            <returns>Tuple of drive letter and network path.</returns>
+        </member>
+        <member name="M:Extensions.CurrentProcessIsElevated(Siemens.Collaboration.Net.Extensions.ISystemMarker)">
+            <summary>
+            Determines whether the current process has been started with admin rights.
+            </summary>
+            <param name="system">The system instance on which this extension is being called.</param>
+            <returns>true, if the process has admin rights, otherwise false.</returns>
+        </member>
+        <member name="M:Extensions.WithAdminRights(Siemens.Collaboration.Net.Extensions.ProcessRunInfo,System.Boolean)">
+            <summary>
+            Start process with admin rights.
+            </summary>
+            <param name="runInfo">Process start info to run as Admin.</param>
+            <param name="adminRights"></param>
+            <returns>Modified process start info.</returns>
+        </member>
+        <member name="M:Extensions.WindowsDirectory(Siemens.Collaboration.Net.Extensions.ISystemMarker)">
+            <summary>
+            Getter for the system special folder.
+            </summary>
+            <param name="system">The system instance on which the extension is being invoked.</param>
+            <returns>The windows directory info.</returns>
+        </member>
+        <member name="M:Extensions.ScreenSettings(Siemens.Collaboration.Net.Extensions.ISystemMarker)">
+            <summary>
+            Gets access to the screen settings.
+            </summary>
+            <param name="marker">The system marker.</param>
+            <returns>The screen settings management.</returns>
+        </member>
+        <member name="M:Extensions.KillProcessCommand(Siemens.Collaboration.Net.Extensions.ISystemMarker,System.String)">
+            <summary>
+            Gets the Kill Process command.
+            </summary>
+            <param name="system"></param>
+            <param name="executable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Extensions.GetMappedDirectory(System.IO.DirectoryInfo)">
+            <summary>
+            Get Mapped directory info from unc
+            </summary>
+            <param name="directory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Extensions.ToUnc(System.IO.FileInfo,System.Boolean)">
+            <summary>
+            Converts the file info to the unc version if it represents a path on a mapped network drive.
+            </summary>
+            <param name="file">The file info on which the extension is invoked.</param>
+            <param name="throwException">Should be throw an exception. Default: true.</param>
+            <returns>The unc version of the file if its a mapped network path, otherwise the given file info.</returns>
+        </member>
+        <member name="M:Extensions.ToUnc(System.IO.DirectoryInfo,System.Boolean)">
+            <summary>
+            Converts the directory info to the unc version if it represents a path on a mapped network drive.
+            </summary>
+            <param name="directory">The directory info on which the extension is invoked.</param>
+            <param name="throwException">Should a exception be throw. Default: true.</param>
+            <returns>The unc version of the directory if its a mapped network path, otherwise the given directory info.</returns>
+        </member>
+        <member name="M:Extensions.AssembleDll(Siemens.Collaboration.Net.Extensions.ISystemMarker,System.IO.FileInfo,System.IO.FileInfo,System.IO.FileInfo)">
+            <summary>
+            Assembles a dll using the intermediate language file and a key file.
+            </summary>
+            <param name="system">The system instance on which this extension is invoked.</param>
+            <param name="ilFile">The intermediate language file to be assembled.</param>
+            <param name="keyFile">The key file used for strongnaming</param>
+            <param name="assemblyFile">The resulting assembly file.</param>
+        </member>
+        <member name="M:Extensions.GacAssemblyDirectories(Siemens.Collaboration.Net.Extensions.ISystemMarker)">
+            <summary>
+            Getter for the GAC assembly directories. 
+            </summary>
+            <param name="system">The system instance on which this extension is being called.</param>
+            <returns>Enumeration for teh GAC assembly directories.</returns>
+        </member>
+        <member name="M:Extensions.StrongNameAssembly(Siemens.Collaboration.Net.Extensions.ISystemMarker,System.IO.FileInfo,System.IO.FileInfo)">
+            <summary>
+            Strongnames an assembly. It disassembles it and then reassembles using the key.
+            </summary>
+            <param name="system">The system instance on which this extension is invoked.</param>
+            <param name="assemblyFile">The assembly to be strongnamed.</param>
+            <param name="keyFile">The key used for strongnaming.</param>
+        </member>
+        <member name="M:Extensions.OpenWithExplorer(System.IO.FileSystemInfo,System.Boolean)">
+            <summary>
+            Opens the given file with the notepad.
+            </summary>
+            <param name="file">The file to open.</param>
+            <param name="select"></param>
+        </member>
+        <member name="M:Extensions.DisassembleDll(Siemens.Collaboration.Net.Extensions.ISystemMarker,System.IO.FileInfo,System.IO.FileInfo)">
+            <summary>
+            Disassembles an assembly.
+            </summary>
+            <param name="system">The system instance on which this extension is invoked.</param>
+            <param name="assemblyFile">The assembly to be disassembled.</param>
+            <param name="ilFile">The intermediate language file to save the output in</param>
+        </member>
+        <member name="M:Extensions.RunAs(Siemens.Collaboration.Net.Extensions.ISystemMarker,System.IO.FileInfo,System.String,System.String,System.Boolean,System.Boolean,System.Nullable{System.TimeSpan},System.Boolean,Siemens.Collaboration.Net.Extensions.IProcessExecutor)">
+            <summary>
+            Execute a program under a different user account (non-elevated).
+            </summary>
+            <param name="system">The system instance on which this extension is invoked</param>
+            <param name="application">File of the application to run</param>
+            <param name="domainOrMachineName">Machine name</param>
+            <param name="userName">Username</param>
+            <param name="saveCredentials">Use credentials previously saved by the user</param>
+            <param name="simulateInput">Wraps the given process or shell command into a command prompt call.</param>
+            <param name="timeout">Timeout</param>
+            <param name="throwException">Throw exception if an error occurs</param>
+            <param name="remoteExecutor">The process executor that is used to perform the operation.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Extensions.GacDirectories(Siemens.Collaboration.Net.Extensions.ISystemMarker)">
+            <summary>
+            Getter for the GAC directories.
+            </summary>
+            <param name="system">The system instance on which this extension is being called.</param>
+            <returns>Enumeration for the GAC directories.</returns>
+        </member>
+        <member name="M:Extensions.GetUncPath(System.IO.DirectoryInfo)">
+            <summary>
+            Given a path, returns the UNC path or the original. (No exceptions
+            are raised by this function directly). For example, "P:\2008-02-29"
+            might return: "\\networkserver\Shares\Photos\2008-02-09"
+            </summary>
+            <param name="directory">The path to convert to a UNC Path</param>
+            <returns>A UNC path. If a network drive letter is specified, the
+            drive letter is converted to a UNC or network path. If the 
+            originalPath cannot be converted, it is returned unchanged.</returns>
+        </member>
+        <member name="M:Extensions.AssociateExtension(System.IO.FileInfo,System.String,System.String,System.IO.FileInfo,System.Boolean)">
+            <summary>
+            Associate file to extension.
+            </summary>
+            <param name="executable">Executable to associate.</param>
+            <param name="extension">Extension for executable.</param>
+            <param name="toolDisplayName"></param>
+            <param name="iconFile">Icon file to link.</param>
+            <param name="overwrite">Should associate extension be override if exists.</param>
+        </member>
+        <member name="M:Extensions.AssociateExtension(Siemens.Collaboration.Net.IGlobal,System.String,System.String,System.IO.FileInfo,System.Boolean)">
+            <summary>
+            Associate file to extension.
+            </summary>
+            <param name="global">Global marker</param>
+            /// <param name="command">Command to associate with</param>
+            <param name="extension">Extension for executable.</param>
+            <param name="iconFile">Icon file to link.</param>
+            <param name="overwrite">Should associate extension be override if exists.</param>
+        </member>
+        <member name="M:Extensions.MainModuleFileInfo(System.Diagnostics.Process)">
+            <summary>
+            Returns the MainModules file, avoiding Win32Exception when accessing a 64 bit process from a 32 bit process
+            </summary>
+            <param name="process">The process to get the main modules file from</param>
+            <returns>FileInfo of the main module</returns>
+        </member>
+        <member name="M:Extensions.Kill(System.Diagnostics.Process,System.Boolean)">
+            <summary>
+            Kill a process, and all of its children, grandchildren, etc.
+            </summary>
+            <param name="process">Process to terminate</param>
+            <param name="terminateChildren">Terminate child processes</param>
+        </member>
+        <member name="M:Extensions.UserManagement(Siemens.Collaboration.Net.Extensions.ISystemMarker)">
+            <summary>
+            User management helper
+            </summary>
+            <param name="systemMarker"></param>
+            <returns></returns>
+        </member>
+        <member name="T:StringExtensions">
+            <summary>
+            String extensions
+            </summary>
+        </member>
+        <member name="M:StringExtensions.ToRegistryKey(System.String,System.Boolean,Microsoft.Win32.RegistryView)">
+            <summary>
+            Convert a registry key path to a RegistryKey object
+            </summary>
+            <param name="path">Registry path starting with registry hive (e.g. HKEY_CURRENT_USER)</param>
+            <param name="create">Create the key if not exists (requires write privileges)</param>
+            <param name="registryView">Specifies which registry view to target on a 64-bit operating system.</param>
+            <returns>Returns the RegistryKey object or null if key not found</returns>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.IsExternalInit">
+            <summary>
+            Reserved to be used by the compiler for tracking metadata.
+            This class should not be used by developers in source code.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.ModuleInitializerAttribute">
+            <summary>
+            Attribute to mark the module initializer class.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.AllowNullAttribute">
+            <summary>Specifies that null is allowed as an input even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DisallowNullAttribute">
+            <summary>Specifies that null is disallowed as an input even if the corresponding type allows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullAttribute">
+            <summary>Specifies that an output may be null even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullAttribute">
+            <summary>Specifies that an output will not be null even if the corresponding type allows it. Specifies that an input argument was not null when the call returns.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute">
+            <summary>Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue"/>, the parameter may be null even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified return value condition.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter may be null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute">
+            <summary>Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue"/>, the parameter will not be null even if the corresponding type allows it.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified return value condition.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute">
+            <summary>Specifies that the output will be non-null if the named parameter is non-null.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.#ctor(System.String)">
+            <summary>Initializes the attribute with the associated parameter name.</summary>
+            <param name="parameterName">
+            The associated parameter name.  The output will be non-null if the argument to the parameter specified is non-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.ParameterName">
+            <summary>Gets the associated parameter name.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute">
+            <summary>Applied to a method that will never return under any circumstance.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute">
+            <summary>Specifies that the method will not return if the associated Boolean parameter is passed the specified value.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified parameter value.</summary>
+            <param name="parameterValue">
+            The condition parameter value. Code after the method will be considered unreachable by diagnostics if the argument to
+            the associated parameter matches this value.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.ParameterValue">
+            <summary>Gets the condition parameter value.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute">
+            <summary>Specifies that the method or property will ensure that the listed field and property members have not-null values.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String)">
+            <summary>Initializes the attribute with a field or property member.</summary>
+            <param name="member">
+            The field or property member that is promised to be not-null.
+            </param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String[])">
+            <summary>Initializes the attribute with the list of field and property members.</summary>
+            <param name="members">
+            The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.Members">
+            <summary>Gets field or property member names.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute">
+            <summary>Specifies that the method or property will ensure that the listed field and property members have not-null values when returning with the specified return value condition.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String)">
+            <summary>Initializes the attribute with the specified return value condition and a field or property member.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+            <param name="member">
+            The field or property member that is promised to be not-null.
+            </param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String[])">
+            <summary>Initializes the attribute with the specified return value condition and list of field and property members.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+            <param name="members">
+            The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.Members">
+            <summary>Gets field or property member names.</summary>
+        </member>
+    </members>
+</doc>

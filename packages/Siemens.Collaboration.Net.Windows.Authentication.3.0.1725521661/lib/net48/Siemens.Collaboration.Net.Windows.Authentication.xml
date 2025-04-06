@@ -1,0 +1,251 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Siemens.Collaboration.Net.Windows.Authentication</name>
+    </assembly>
+    <members>
+        <member name="T:Credentials">
+            <summary>
+            Credentials for authentication
+            </summary>
+        </member>
+        <member name="M:Credentials.#ctor(System.String,System.String,System.Security.SecureString)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="domain">The domain</param>
+            <param name="username">The username</param>
+            <param name="password">The password</param>
+        </member>
+        <member name="M:Credentials.#ctor(System.String,System.Security.SecureString,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="userNameWithOrWithoutDomain">The username (can include domain)</param>
+            <param name="password">The password</param>
+            <param name="useMachineNameIfDomainNotSpecified">Use machine name if no domain is specified in <paramref name="userNameWithOrWithoutDomain"/></param>
+        </member>
+        <member name="M:Credentials.DomainAndUser">
+            <summary>
+            Aggregates domain and username (Domain\Username)
+            </summary>
+            <returns>Aggregated domain and username  (Domain\Username)</returns>
+        </member>
+        <member name="P:Credentials.Domain">
+            <summary>
+            Domain
+            </summary>
+        </member>
+        <member name="P:Credentials.UserName">
+            <summary>
+            Username
+            </summary>
+        </member>
+        <member name="P:Credentials.Password">
+            <summary>
+            Password
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Extensions.InteractiveAuthentication.CredentialInfo">
+            <summary>
+            CredentialInfo
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Extensions.InteractiveAuthentication.CredentialInfo.Target">
+            <summary>
+            Gets the target address.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Extensions.InteractiveAuthentication.CredentialInfo.Type">
+            <summary>
+            Gets the type.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Extensions.InteractiveAuthentication.CredentialInfo.User">
+            <summary>
+            Gets the user info.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Extensions.InteractiveAuthentication.CredentialInfo.Persistence">
+            <summary>
+            Gets the persistence of the credential.
+            </summary>
+        </member>
+        <member name="T:AuthenticationExtensions">
+            <summary>
+            Authentication extensions
+            </summary>
+        </member>
+        <member name="M:AuthenticationExtensions.AuthenticateInteractiveAsync(System.Uri,System.Boolean,System.Boolean,System.Boolean,System.Net.Http.HttpMethod)">
+            <summary>
+            Authenticates the specified URI interactively.
+            </summary>
+            <param name="uri">The URI to authenticate.</param>
+            <param name="verifyUrlAccess">Determines whether to verify URL access.</param>
+            <param name="showSaveCredentialsCheckbox">Determines whether to show the save credentials checkbox.</param>
+            <param name="enableSaveCredentialsByDefault">Determines whether to enable save credentials by default.</param>
+            <param name="uriAccessMethod">The URI access method.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the network credentials and the HTTP response message.</returns>
+        </member>
+        <member name="M:AuthenticationExtensions.AuthenticateInteractiveAsync(System.IO.DirectoryInfo,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Authenticates the specified URI interactively.
+            </summary>
+            <param name="networkDirectory">The directory to authenticate.</param>
+            <param name="verifyDirectoryAccess">Determines whether to verify directory access.</param>
+            <param name="showSaveCredentialsCheckbox">Determines whether to show the save credentials checkbox.</param>
+            <param name="enableSaveCredentialsByDefault">Determines whether to enable save credentials by default.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the network credentials and the HTTP response message.</returns>
+        </member>
+        <member name="M:AuthenticationExtensions.GetCredentials(Siemens.Collaboration.Net.Extensions.IProcessExecutor,System.Boolean,System.Nullable{System.Boolean})">
+            <summary>
+            Adds the given windows credentials to the credential manager.
+            </summary>
+        </member>
+        <member name="M:AuthenticationExtensions.AuthenticateInteractiveAsync(Siemens.Collaboration.Net.Extensions.ISystemMarker,System.String,System.Boolean,System.Boolean,System.Func{System.Net.NetworkCredential,System.Threading.Tasks.Task{System.Boolean}},System.Boolean,System.Boolean)">
+            <summary>
+            Authenticates the specified URI interactively.
+            </summary>
+            <param name="system">The system marker.</param>
+            <param name="target">The target URI to authenticate.</param>
+            <param name="showSaveCredentialsCheckbox">Determines whether to show the save credentials checkbox.</param>
+            <param name="enableSaveCredentialsByDefault">Determines whether to enable save credentials by default.</param>
+            <param name="verifyAuthenticationAsync">The function to verify the authentication asynchronously.</param>
+            <param name="forceAuthentication">Determines whether to force authentication even if saved credentials exist.</param>
+            <param name="throwExceptionOnCanceled">Determines whether to throw an exception when the user cancels the authentication.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the network credentials.</returns>
+        </member>
+        <member name="M:AuthenticationExtensions.AddCredentials(Siemens.Collaboration.Net.Extensions.IProcessExecutor,System.String,Credentials,System.Boolean,System.Boolean,System.Boolean,System.Nullable{System.Boolean})">
+            <summary>
+            Adds the given windows credentials to the credential manager.
+            </summary>
+            <param name="remoteExecutor"></param>
+            <param name="target">The target machine.</param>
+            <param name="credentials">The credentials to add.</param>
+            <param name="overwrite">Determines whether the credentials should be overwritten if they already exist.</param>
+            <param name="throwException">Determines whether an exception should be thrown, when adding the credentials to the store fails.</param>
+            <param name="adminContext">Determines whether the credentials should be added to the admin context store.</param>
+            <param name="currentProcessIsElevated"></param>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.IsExternalInit">
+            <summary>
+            Reserved to be used by the compiler for tracking metadata.
+            This class should not be used by developers in source code.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.ModuleInitializerAttribute">
+            <summary>
+            Attribute to mark the module initializer class.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.AllowNullAttribute">
+            <summary>Specifies that null is allowed as an input even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DisallowNullAttribute">
+            <summary>Specifies that null is disallowed as an input even if the corresponding type allows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullAttribute">
+            <summary>Specifies that an output may be null even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullAttribute">
+            <summary>Specifies that an output will not be null even if the corresponding type allows it. Specifies that an input argument was not null when the call returns.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute">
+            <summary>Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue"/>, the parameter may be null even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified return value condition.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter may be null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute">
+            <summary>Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue"/>, the parameter will not be null even if the corresponding type allows it.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified return value condition.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute">
+            <summary>Specifies that the output will be non-null if the named parameter is non-null.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.#ctor(System.String)">
+            <summary>Initializes the attribute with the associated parameter name.</summary>
+            <param name="parameterName">
+            The associated parameter name.  The output will be non-null if the argument to the parameter specified is non-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.ParameterName">
+            <summary>Gets the associated parameter name.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute">
+            <summary>Applied to a method that will never return under any circumstance.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute">
+            <summary>Specifies that the method will not return if the associated Boolean parameter is passed the specified value.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified parameter value.</summary>
+            <param name="parameterValue">
+            The condition parameter value. Code after the method will be considered unreachable by diagnostics if the argument to
+            the associated parameter matches this value.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.ParameterValue">
+            <summary>Gets the condition parameter value.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute">
+            <summary>Specifies that the method or property will ensure that the listed field and property members have not-null values.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String)">
+            <summary>Initializes the attribute with a field or property member.</summary>
+            <param name="member">
+            The field or property member that is promised to be not-null.
+            </param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String[])">
+            <summary>Initializes the attribute with the list of field and property members.</summary>
+            <param name="members">
+            The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.Members">
+            <summary>Gets field or property member names.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute">
+            <summary>Specifies that the method or property will ensure that the listed field and property members have not-null values when returning with the specified return value condition.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String)">
+            <summary>Initializes the attribute with the specified return value condition and a field or property member.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+            <param name="member">
+            The field or property member that is promised to be not-null.
+            </param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String[])">
+            <summary>Initializes the attribute with the specified return value condition and list of field and property members.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+            <param name="members">
+            The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.Members">
+            <summary>Gets field or property member names.</summary>
+        </member>
+    </members>
+</doc>

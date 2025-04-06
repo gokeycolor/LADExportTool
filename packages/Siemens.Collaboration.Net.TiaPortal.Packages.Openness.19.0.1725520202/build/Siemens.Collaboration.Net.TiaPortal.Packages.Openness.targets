@@ -1,0 +1,9 @@
+<Project>
+
+	<PropertyGroup>
+		<OpennessPackageName>$(MsBuildThisFileName)</OpennessPackageName>
+	</PropertyGroup>
+
+	<Import Project="..\targets\ReferenceSiemensEngineeringAssemblies.targets"/>
+
+</Project>

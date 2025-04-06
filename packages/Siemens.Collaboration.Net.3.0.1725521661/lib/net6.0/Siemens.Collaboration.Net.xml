@@ -1,0 +1,619 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Siemens.Collaboration.Net</name>
+    </assembly>
+    <members>
+        <member name="T:Siemens.Collaboration.Net.Api">
+            <summary>
+            The global factory.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Api.Create">
+            <summary>
+            Gets the default factory.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Api.Global">
+            <summary>
+            Gets the access to global information.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.AttributeConstants">
+            <summary>
+            Provides some common constants.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.AttributeConstants.ExtensionMethodClassObsolete">
+            <summary>
+            Should be used for obsolete attributes on extension method classes to avoid that the classes are directly used.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.AttributeConstants.FactoryConstructorObsolete">
+            <summary>
+            Should be used for obsolete attributes on public constructors that are required by the strong typed factory architecture,
+            but must not be invoked by the user directly.
+            </summary>
+        </member>
+        <member name="F:Siemens.Collaboration.Net.AttributeConstants.ViewModelSerializationConstructorObsolete">
+            <summary>
+            Should be used for obsolete attributes on public constructors that are required view model serialization
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.CoreBinding">
+            <summary>
+            Default implementation for ICoreBinding <see cref="T:Siemens.Collaboration.Net.ICoreBinding"/>
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.CoreBinding.Empty">
+            <summary>
+            No-op binding which can be used in scenarios where you don't want to bind to anything
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.CoreBinding.#ctor(System.Action,System.Action,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="bindAction">Action to establish the binding</param>
+            <param name="unbindAction">Action to disconnect the binding</param>
+            <param name="autoBind">Determines whether the bind action should be invoked on core binding creation</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.CoreBinding.Dispose">
+            <inheritdoc cref="M:Siemens.Collaboration.Net.CoreBinding.Unbind(System.Boolean)"/>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.CoreBinding.Suppress(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="P:Siemens.Collaboration.Net.CoreBinding.IsActive">
+            <inheritdoc />
+        </member>
+        <member name="E:Siemens.Collaboration.Net.CoreBinding.Activated">
+            <inheritdoc />
+        </member>
+        <member name="M:Siemens.Collaboration.Net.CoreBinding.Bind(System.Boolean,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Siemens.Collaboration.Net.CoreBinding.Unbind(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:Siemens.Collaboration.Net.CoreBindingSequence`1">
+            <summary>
+            Default implementation which combines a sequence of core bindings as one binding
+            </summary>
+        </member>
+        <member name="E:Siemens.Collaboration.Net.CoreBindingSequence`1.SuppressionReleased">
+            <summary>
+            Will be raised when a suppression has been released.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.CoreBindingSequence`1.#ctor(`0)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="bindings">Sequence of core bindings that should be handled as one binding</param>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.CoreBindingSequence`1.Bindings">
+            <summary>
+            Sequence of bindings
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.CoreBindingSequence`1.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:Siemens.Collaboration.Net.CoreBindingSequence`1.Suppress(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="P:Siemens.Collaboration.Net.CoreBindingSequence`1.IsActive">
+            <inheritdoc />
+        </member>
+        <member name="E:Siemens.Collaboration.Net.CoreBindingSequence`1.Activated">
+            <inheritdoc />
+        </member>
+        <member name="M:Siemens.Collaboration.Net.CoreBindingSequence`1.Bind(System.Boolean,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Siemens.Collaboration.Net.CoreBindingSequence`1.Unbind(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:Siemens.Collaboration.Net.CoreBindingCollection">
+            <inheritdoc />
+        </member>
+        <member name="M:Siemens.Collaboration.Net.CoreBindingCollection.#ctor(Siemens.Collaboration.Net.ICoreBinding[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="bindings">Bindings</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.CoreBindingCollection.Add(Siemens.Collaboration.Net.ICoreBinding)">
+            <summary>
+            Add a core binding to the core binding collection
+            </summary>
+            <param name="binding">Core binding to add to the collection</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.CoreBindingCollection.op_Addition(Siemens.Collaboration.Net.CoreBindingCollection,Siemens.Collaboration.Net.ICoreBinding)">
+            <summary>
+            Allows adding a core binding to a core binding collection be using += (e.g. bindingCollection += myBinding)
+            </summary>
+            <param name="container">The core binding collection to add the core binding to</param>
+            <param name="binding">Core binding to add to the collection</param>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Disposable">
+            <summary>
+            A simple implementation of the <see cref="T:System.IDisposable"/> interface that can be used, when you want to provide the using(...){...} pattern for 
+            any workflow with a start / stop scenario.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Disposable.#ctor(System.Action)">
+            <summary>
+            Creates a new common Disposable instance.
+            </summary>
+            <param name="onDispose">The action that will be invoked, when the Disposable will be disposed.</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Disposable.Dispose">
+            <summary>
+            Invokes the specified dispose action.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Disposable`1">
+            <summary>
+            Dynamic implementation of a disposable object.
+            </summary>
+            <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Disposable`1.Value">
+            <summary>
+            Dynamic value property.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Disposable`1.#ctor(`0,System.Action)">
+            <summary>
+            Dynamic disposable for class.
+            </summary>
+            <param name="value">Value to use in invoked method.</param>
+            <param name="onDispose">Method to invoke on dispose.</param>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.ExtendableObject`1">
+            <summary>
+            A default implementation of the <see cref="T:Siemens.Collaboration.Net.IExtendableObject"/> that belongs to the type <typeparamref name="TSource"/>
+            </summary>
+            <typeparam name="TSource"></typeparam>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.ExtendableObject">
+            <summary>
+            The default implementation of the <see cref="T:Siemens.Collaboration.Net.IExtendableObject"/> interface.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.ExtendableCache`1">
+            <summary>
+            Extendable cache
+            </summary>
+            <typeparam name="TKey">Type of the key</typeparam>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.ExtendableCache`1.#ctor(System.Threading.LazyThreadSafetyMode)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="valueAccessThreadSafetyMode">Determines how the underlying values in the cache are created (see https://learn.microsoft.com/en-us/dotnet/api/system.threading.lazythreadsafetymode?view=net-7.0)</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.ExtendableCache`1.Get``1(`0,System.Func{`0,``0},System.Action{`0,``0})">
+            <summary>
+            Get or adds the value from/to the cache
+            </summary>
+            <typeparam name="TValue"></typeparam>
+            <param name="key"></param>
+            <param name="getDefault"></param>
+            <param name="onValueAdded"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.ExtendableCache`1.Reset(`0)">
+            <summary>
+            Resets the value associated with the specified key in the cache.
+            </summary>
+            <param name="key">The key whose value to reset.</param>
+            <returns><c>true</c> if the value was successfully removed; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.ExtendableCache`1.Set``1(`0,``0,System.Func{`0,System.Lazy{``0}},System.Boolean,System.Action{System.ValueTuple{``0,``0}})">
+            <summary>
+            Sets the value associated with the specified key in the cache.
+            </summary>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="key">The key whose value to set.</param>
+            <param name="value">The value to set.</param>
+            <param name="init">A function that initializes the value lazily based on the key.</param>
+            <param name="evaluateOnInit">Determines whether to evaluate the initialization function when setting the value.</param>
+            <param name="onValueChanged">An action to be invoked when the value is changed.</param>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Factory.Core.BeforeObjectCreateEventArgs`1">
+            <summary>
+            Provides functionality to create an instance of the default implementation and to replace the default implementation
+            with a custom implementation (e.g. proxy or mock).
+            </summary>
+            <typeparam name="TInterface">The type of the abstract representation.</typeparam>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Factory.Core.BeforeObjectCreateEventArgs`1.ReplacedObject">
+            <summary>
+            Sets a custom implementation, that will be returned by the factory.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Factory.Core.BeforeObjectCreateEventArgs`1.GetDefaultObject">
+            <summary>
+            Gets a function that creates the default implementation for the specified abstract representation.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Factory.Core.BeforeObjectCreateEventArgs`1.DefaultObjectType">
+            <summary>
+            Gets the type of the default implementation.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Factory.Core.DefaultFactory`1">
+            <summary>
+            The abstract global factory, that provides the possibility for dependency injection.
+            </summary>
+            <typeparam name="TInterface">The type of the abstract representation.</typeparam>
+        </member>
+        <member name="E:Siemens.Collaboration.Net.Factory.Core.DefaultFactory`1.BeforeObjectCreated">
+            <summary>
+            Will be raised before the default implementation of abstract representation will be created.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Factory.Core.DefaultFactory`1.OnBeforeObjectCreated(Siemens.Collaboration.Net.Factory.Core.DefaultFactory{`0},System.Type,System.Func{`0})">
+            <summary>
+            Will be invoked by a concrete factory, before it creates an instance of the default implementation.
+            </summary>
+            <param name="factory">The concrete factory</param>
+            <param name="defaultObjectType">The type of the default implementation.</param>
+            <param name="createFunction">A function that creates a new default instance.</param>
+            <returns>A replace object that will returned by the calling factory instead a instance of the default implementation, when e.g. a proxy is injected, otherwise null.</returns>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.Factory.Core.DefaultFactory`1.BeforeObjectCreatedIsHandled">
+            <summary>
+            Indicates whether a dependency injection framework is attached to the factories of the specified abstract type.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Factory.Core.DefaultFactory`2">
+            <summary>
+            The global factory with a mapping between a concrete default implementation and its abstract representation.
+            </summary>
+            <typeparam name="TDefault">The type of the default implementation for the given abstract representation.</typeparam>
+            <typeparam name="TInterface">The type of the abstract representation.</typeparam>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Factory.DefaultOfProviderExtensions">
+            <summary>
+            Provides factory extension methods.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Factory.DefaultOfProviderExtensions.DefaultOf``1(Siemens.Collaboration.Net.Factory.IDefaultOfProvider)">
+            <summary>
+            Gets the default of the specified type.
+            </summary>
+            <typeparam name="T">The type.</typeparam>
+            <param name="provider">The factory on which the extension method is invoked.</param>
+            <returns>The default of the specified type.</returns>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Factory.FactoryMappingExtensions">
+            <summary>
+            Provides extension methods for the <see cref="T:Siemens.Collaboration.Net.Factory.Mapping.IFactoryMapping`2"/> interface.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Factory.FactoryMappingExtensions.Create``2(Siemens.Collaboration.Net.Factory.Mapping.IFactoryMapping{``0,``1})">
+            <summary>
+            Creates a new instance of the specified interface. If no dependency has been injected, an instance of type <typeparamref name="TDefault"/> will be returned, 
+            otherwise the injection will be invoked to create another instance, that implements the same interface.
+            </summary>
+            <typeparam name="TDefault">The interface's default implementation type.</typeparam>
+            <typeparam name="TInterface">The interface type.</typeparam>
+            <param name="factoryMapping">The mapping owner (mostly the default implementation) on which the extension method is invoked.</param>
+            <returns>A new instance of the specified interface.</returns>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Factory.FactoryMappingExtensions.Create``3(Siemens.Collaboration.Net.Factory.Mapping.IFactoryMapping{``0,``1,``2},``2)">
+            <summary>
+            Creates a new instance of the specified interface. If no dependency has been injected, an instance of type <typeparamref name="TDefault"/> will be returned, 
+            otherwise the injection will be invoked to create another instance, that implements the same interface.
+            </summary>
+            <typeparam name="TDefault">The interface's default implementaion type.</typeparam>
+            <typeparam name="TInterface">The interface type.</typeparam>
+            <param name="parameter">The type of the initialize parameter of the default implementation.</param>
+            <param name="factoryMapping">The mapping owner (mostly the default implementation) on which the extension method is invoked.</param>
+            <typeparam name="TParameter">The initialization parameter.</typeparam>
+            <returns>A new instance of the specified interface.</returns>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Factory.IDefaultOfProvider">
+            <summary>
+            A marker interface that provides a generic extension method that get default value of the specified generic type.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Factory.IFactory">
+            <summary>
+            An marker interface for the factory, that can be used to attach extension methods to it.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Factory.Mapping.IFactoryMapping`2">
+            <summary>
+            Marker interface that maps an interface to its default implementation. This interface should be implemented by the default implementation class.
+            Provides the factory pattern. See <see cref="T:Siemens.Collaboration.Net.Api"/> for more information.
+            </summary>
+            <typeparam name="TDefault">The type that provides the default implementation of <typeparamref name="TInterface"/>.</typeparam>
+            <typeparam name="TInterface">The interface.</typeparam>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Factory.Mapping.IFactoryMapping`3">
+            <summary>
+            Marker interface that maps an interface to its default implementation. This interface should be implemented by the default implementation class.
+            Provides the factory pattern. See <see cref="T:Siemens.Collaboration.Net.Api"/> for more information.
+            </summary>
+            <typeparam name="TDefault">The type that provides the default implementation of <typeparamref name="TInterface"/>.</typeparam>
+            <typeparam name="TInterface">The interface.</typeparam>
+            <typeparam name="TParameter">The initial parameter that is required by the default implementation</typeparam>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Factory.Mapping.IInitialize`1">
+            <summary>
+            Used by the factory pattern, to create objects with initialization parameters
+            </summary>
+            <typeparam name="TParameter">The type of the initialization parameter</typeparam>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Factory.Mapping.IInitialize`1.Initialize(`0)">
+            <summary>
+            Will be invoked by the factory after the object has been created.
+            Add your initialization code here.
+            </summary>
+            <param name="parameter">The initialization parameter</param>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Factory.Mapping.IInterfaceProvider`1">
+            <summary>
+            A marker interface for classes that implement the specified interface.
+            </summary>
+            <typeparam name="TInterface">The interface that is implemented by the provider class.</typeparam>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Factory.Provider.FactoryProviderExtensions">
+            <summary>
+            Contains extension method for the <see cref="T:Siemens.Collaboration.Net.Factory.Provider.IFactoryProvider"/> interface.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.Factory.Provider.FactoryProviderExtensions.Create(Siemens.Collaboration.Net.Factory.Provider.IFactoryProvider)">
+            <summary>
+            Gets the global factory.
+            </summary>
+            <param name="provider">The factory provider on which the extension method is invoked.</param>
+            <returns>The global factory.</returns>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Factory.Provider.IFactoryProvider">
+            <summary>
+            A marker interface that can be implemented to access the Factory via extension method. (e.g. this.Create().MyClass()).
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.HideObjectMembersBase">
+            <summary>
+            A base class that can be used to hide the standard object members.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.HideObjectMembersBase.Equals(System.Object)">
+            <summary>
+            Hide the Equals method.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.HideObjectMembersBase.GetHashCode">
+            <summary>
+            Hide the GetHashCode method.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.HideObjectMembersBase.ToString">
+            <summary>
+            Hide the ToString method.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.HideObjectMembersBase.GetType">
+            <summary>
+            Hide the GetType method.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.ICoreBinding">
+            <summary>
+            Interface for core bindings
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.ICoreBinding.Suppress(System.Boolean)">
+            <summary>
+            Suppresses and reactivates the binding after the suppress disposable has been disposed.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.ICoreBinding.IsActive">
+            <summary>
+            Determines whether the binding is currently active
+            </summary>
+        </member>
+        <member name="E:Siemens.Collaboration.Net.ICoreBinding.Activated">
+            <summary>
+            Raised when the binding becomes active
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.ICoreBinding.Bind(System.Boolean,System.Boolean)">
+            <summary>
+            Activates the binding.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.ICoreBinding.Unbind(System.Boolean)">
+            <summary>
+            Deactivates the binding.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.ICustomizableExtendableObject">
+            <summary>
+            An interface fot customizable objects with dynamic members.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.ICustomizableExtendableObject.Set``1(``0,System.String)">
+            <summary>
+            Sets the value of a dynamic object member in cache.
+            </summary>
+            <typeparam name="T">Dynamic type of member</typeparam>
+            <param name="memberName">Member name in cache.</param>
+            <param name="value">Value to set in the cache.</param>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.ICustomizableExtendableObject.Get``1(System.Func{``0},System.String)">
+            <summary>
+            Gets the value of a dynamic object from cache.
+            </summary>
+            <typeparam name="T">Dynamic type of member</typeparam>
+            <param name="memberName">Member name in cache.</param>
+            <param name="getDefault">Function to get a default for a member in cache.</param>
+            <returns>Value of a member in cache.</returns>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.ICustomizableExtendableObject.Invoke(System.Reflection.MethodInfo,System.Object[])">
+            <summary>
+            Invoked if proxied method or property is invoke, to decide what happens during runtime.
+            </summary>
+            <param name="method">Method which will be invoke during runtime.</param>
+            <param name="arguments">Arguments for method invoke.</param>
+            <returns>If a return value is expected, return this.</returns>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.IDisposable`1">
+            <summary>
+            A disposable container that stores a value.
+            </summary>
+            <typeparam name="TValue">The type of the value.</typeparam>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.IDisposable`1.Value">
+            <summary>
+            Gets the value.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.IExtendableObject`1">
+            <summary>
+            An interface for objects with dynamic members.
+            </summary>
+            <typeparam name="TSource">The type that implements this interface.</typeparam>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.IExtendableObject">
+            <summary>
+            An interface for objects with dynamic members.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.IExtendableObject.Cache">
+            <summary>
+            Gets the member cache of the dynamic object.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.IExtendableObjectProvider">
+            <summary>
+            Should be implemented by classes with an extendable cache which should make use of the common infrastructure code.
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.IExtendableObjectProvider.Cache">
+            <summary>
+            Gets the cache.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.IGlobal">
+            <summary>
+            An marker interface that can be extended with global information.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.IHideObjectMembers">
+            <summary>
+            A base interface that can be used to make the default object members invisible on the API interface.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.IHideObjectMembers.GetType">
+            <summary>
+            Makes the Object.GetType() method invisible on the interface.
+            </summary>
+            <returns>The type of the instance.</returns>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.IHideObjectMembers.GetHashCode">
+            <summary>
+            Makes the Object.GetHashCode() method invisible on the interface.
+            </summary>
+            <returns>The hash code.</returns>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.IHideObjectMembers.Equals(System.Object)">
+            <summary>
+            Makes the Object.Equals(object) method invisible on the interface.
+            </summary>
+            <param name="instance">The second instance.</param>
+            <returns>true if the instances are equal, otherwise false.</returns>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.IHideObjectMembers.ToString">
+            <summary>
+            Makes the Object.ToString() method invisible on the interface.
+            </summary>
+            <returns>The string representation of the instance.</returns>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.Serialization.IJsonSerializable">
+            <summary>
+            A marker interface for types that are json serializable. Extension methods are provided.
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.IListProvider`1">
+            <summary>
+            An interface for objects which provide an list
+            </summary>
+        </member>
+        <member name="P:Siemens.Collaboration.Net.IListProvider`1.List">
+            <summary>
+            Inner list
+            </summary>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.ILoadedMembersProvider">
+            <summary>
+            Represents a provider for loaded members.
+            </summary>
+        </member>
+        <member name="E:Siemens.Collaboration.Net.ILoadedMembersProvider.MemberLoaded">
+            <summary>
+            Event that is raised when a member is loaded.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.ILoadedMembersProvider.GetLoadedMembers">
+            <summary>
+            Gets the loaded members.
+            </summary>
+            <returns>An enumerable collection of loaded members.</returns>
+        </member>
+        <member name="T:Siemens.Collaboration.Net.INotifyPropertyChangedTrigger">
+            <summary>
+            Represents a trigger for notifying property changes.
+            </summary>
+        </member>
+        <member name="M:Siemens.Collaboration.Net.INotifyPropertyChangedTrigger.RaisePropertyChanged(System.String,System.Boolean)">
+            <summary>
+            Raises the event when a property is changed.
+            </summary>
+            <param name="propertyName">The name of the property that has changed.</param>
+            <param name="clearMember">Determines whether the property value should be cleared.</param>
+        </member>
+        <member name="T:GlobalExtensions">
+            <summary>
+            Global extensions
+            </summary>
+        </member>
+        <member name="M:GlobalExtensions.OptimizeStacktraceFactory(Siemens.Collaboration.Net.IGlobal)">
+            <summary>
+            Factory for stacktrace optimization (e.g. using nuget package "Ben.Demystifier")
+            </summary>
+            <param name="global">IGlobal marker</param>
+            <returns>Global property setting</returns>
+        </member>
+        <member name="T:GlobalExtensions.GlobalProperty`1">
+            <summary>
+            Represents a global property.
+            </summary>
+            <typeparam name="T">The type of the property value.</typeparam>
+        </member>
+        <member name="M:GlobalExtensions.GlobalProperty`1.Get">
+            <summary>
+            Gets the value of the property.
+            </summary>
+            <returns>The value of the property.</returns>
+        </member>
+        <member name="M:GlobalExtensions.GlobalProperty`1.Set(`0)">
+            <summary>
+            Sets the value of the property.
+            </summary>
+            <param name="value">The value to set.</param>
+        </member>
+    </members>
+</doc>

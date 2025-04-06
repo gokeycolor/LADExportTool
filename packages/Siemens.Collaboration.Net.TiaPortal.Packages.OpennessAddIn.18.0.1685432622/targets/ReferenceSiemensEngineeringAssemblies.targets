@@ -1,0 +1,57 @@
+<Project>
+
+	<PropertyGroup>
+		<TrimmedMsBuildThisFileDirectory>$(MsBuildThisFileDirectory.Trim('\').Trim('/'))</TrimmedMsBuildThisFileDirectory>
+		<OpennessPackagesVersionDirectory>$([System.IO.Directory]::GetParent('$(TrimmedMsBuildThisFileDirectory)').Name.Replace('$(OpennessPackageName).', ''))</OpennessPackagesVersionDirectory>
+		<OpennessBuildPackageMajorVersion Condition="'$(OpennessBuildPackageMajorVersion)' == ''">$(OpennessPackagesVersionDirectory.Split('.')[0])</OpennessBuildPackageMajorVersion>
+		<OpennessBuildPackageMinorVersion Condition="'$(OpennessBuildPackageMinorVersion)' == ''">$(OpennessPackagesVersionDirectory.Split('.')[1])</OpennessBuildPackageMinorVersion>
+		<OpennessBuildPackageToolsDirectory Condition="'$(OpennessBuildPackageToolsDirectory)' == ''">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\tools'))</OpennessBuildPackageToolsDirectory>
+		<SiemensEngineeringCopyLocal Condition="'$(SiemensEngineeringCopyLocal)' == ''">false</SiemensEngineeringCopyLocal>
+
+		<TiaPortalEditionName Condition="'$(TiaPortalEditionName)' == ''"></TiaPortalEditionName>
+
+		<SiemensEngineeringDirectoryName Condition="'$(SiemensEngineeringDirectoryName)' == ''">V$(OpennessBuildPackageMajorVersion)$(SiemensEngineeringDirectoryNamePostfix)</SiemensEngineeringDirectoryName>
+	</PropertyGroup>
+
+	<Choose>
+		<When Condition="'$(SiemensEngineeringDirectory)' == '' AND ('$(TiaPortalLocation)' == '' OR Exists('$(TiaPortalLocation)') == false)">
+			<PropertyGroup>
+				<SiemensEngineeringPath Condition="'$(SiemensEngineeringPath)' == ''">$([MSBuild]::GetRegistryValueFromView(`HKEY_LOCAL_MACHINE\SOFTWARE\Siemens\Automation\Openness\$(OpennessBuildPackageMajorVersion).$(OpennessBuildPackageMinorVersion)\PublicAPI\$(OpennessBuildPackageMajorVersion).$(OpennessBuildPackageMinorVersion).0.0`, `Siemens.Engineering`, `C:\Program Files\Siemens\Automation\Portal V$(OpennessBuildPackageMajorVersion)\PublicAPI\V$(OpennessBuildPackageMajorVersion)\Siemens.Engineering.dll`, RegistryView.Registry64, RegistryView.Registry32))</SiemensEngineeringPath>
+				<TiaPortalLocation Condition="'$(SiemensEngineeringPath)' != ''">$([System.IO.Path]::GetFullPath('$(SiemensEngineeringPath)\..\..\..'))</TiaPortalLocation>
+			</PropertyGroup>
+		</When>
+	</Choose>
+
+	<PropertyGroup>
+		<SiemensEngineeringDirectory Condition="'$(SiemensEngineeringDirectory)' == '' AND '$(TiaPortalEditionName)' != ''">$(TiaPortalLocation)\Editions\$(TiaPortalEditionName)\PublicAPI\$(SiemensEngineeringDirectoryName)</SiemensEngineeringDirectory>
+		<SiemensEngineeringDirectory Condition="'$(SiemensEngineeringDirectory)' == ''">$(TiaPortalLocation)\PublicAPI\$(SiemensEngineeringDirectoryName)</SiemensEngineeringDirectory>
+		<ResolveOpennessReferencesFrom>TiaPortalLocation</ResolveOpennessReferencesFrom>
+	</PropertyGroup>
+
+	<Choose>
+		<When Condition="Exists('$(SiemensEngineeringDirectory)') != 'true' AND Exists('$(OpennessBuildPackageToolsDirectory)') == 'true'">
+			<PropertyGroup>
+				<ResolveOpennessReferencesFrom>Package</ResolveOpennessReferencesFrom>
+				<SiemensEngineeringDirectory>$(OpennessBuildPackageToolsDirectory)</SiemensEngineeringDirectory>
+			</PropertyGroup>
+		</When>
+	</Choose>
+
+	<ItemGroup>
+		<SiemensEngineeringFileWithWildcard Include="$(SiemensEngineeringDirectory)\*.dll" />
+		<SiemensEngineeringFile Include="@(SiemensEngineeringFileWithWildcard)" FullDllPath="$([System.IO.Path]::GetFullPath('%(Identity)'))" />
+		<Reference Condition="Exists(@(SiemensEngineeringFile->'%(FullDllPath)')) == 'true'" Include="@(SiemensEngineeringFile->'%(FullDllPath)')" >
+			<Private>$(SiemensEngineeringCopyLocal)</Private>
+		</Reference>
+	</ItemGroup>
+
+	<Target Name="LogSiemensEngineeringDirectory" BeforeTargets="BeforeResolveReferences">
+		<PropertyGroup>
+			<DefineTiaPortalLocationText>Define property 'TiaPortalLocation' to resolve references from a local directory.</DefineTiaPortalLocationText>
+		</PropertyGroup>
+		<Message Importance="high" Condition="Exists('$(SiemensEngineeringDirectory)') != 'true' AND '$(SiemensEngineeringDirectory)' == ''" Text="Unable to locate TIA Portal installation. $(DefineTiaPortalLocationText)" />
+		<Message Importance="high" Condition="Exists('$(SiemensEngineeringDirectory)') != 'true' AND '$(SiemensEngineeringDirectory)' != ''" Text="Unable to locate Siemens.Engineering assemblies at $(SiemensEngineeringDirectory). $(DefineTiaPortalLocationText)" />
+		<Message Importance="high" Condition="Exists('$(SiemensEngineeringDirectory)') == 'true'" Text="Resolve Siemens.Engineering assemblies for TIA Portal V$(OpennessBuildPackageMajorVersion).$(OpennessBuildPackageMinorVersion) from $(SiemensEngineeringDirectory)" />
+	</Target>
+
+</Project>
