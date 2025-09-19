@@ -4,6 +4,7 @@
 # 使用说明
 
 ```bash
+执行文件位于 LADExportTool/bin/Release
 LADExportTool.exe -o <输出路径> -p <项目文件路径>
 ```
 
